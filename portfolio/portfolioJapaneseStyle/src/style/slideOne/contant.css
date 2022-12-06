@@ -1,0 +1,73 @@
+/* content */
+.contantSlide1 {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  margin: 0 auto;
+  gap: 30px;
+  overflow: hidden;
+  height: 60vh;
+}
+.contantSlide1-left {
+  display: grid;
+  align-content: space-between;
+  width: 30%;
+  background-image: url("/img/slide1/face.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+.contantSlide1-right {
+  width: 70%;
+}
+
+/*text*/
+
+.contantSlide1-right > * {
+  font-size: 18px;
+}
+
+.slide__title {
+  font-family: "CommontB";
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.slide__title span {
+  padding-right: 1px;
+}
+
+.slide__content {
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.list__item {
+  font-size: 24px;
+  padding-left: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style-type: none;
+}
+.list__item:hover > svg {
+  fill: black;
+}
+.containerSakura {
+  position: absolute;
+  top: 250px;
+  right: 80px;
+  transform: rotate(70deg);
+}
+.slide__title_text {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 32px;
+  color: black;
+  margin-bottom: 20px;
+}
+.dud {
+  color: white;
+}

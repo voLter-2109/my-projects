@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+/* nav */
+.border {
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+.ahover:hover {
+  border-bottom: 2px solid #ff9900;
+}
+
+.afocus:focus {
+  border: 2px solid #ff9900;
+}
+
+.aactive:active {
+  color: #e1670e;
+  border: 2px solid transparent;
+  border-bottom: 2px solid #ff9900;
+}
+/* search */
+.header-search-cheackbox:focus {
+  border: 2px solid #ff9900;
+  box-sizing: border-box;
+}
+.header-search-cheackbox:hover > svg rect {
+  fill: orange;
+}
+.header-search-cheackbox:hover > svg path {
+  stroke: orange;
+}
+
+#closed-search:hover > svg > rect {
+  fill: orange;
+}
+#closed-search:hover > svg > circle {
+  stroke: orange;
+}

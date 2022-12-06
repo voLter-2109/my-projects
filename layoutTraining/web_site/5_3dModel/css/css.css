@@ -1,0 +1,243 @@
+#header {
+  width: 100%;
+  background-color: #3f2aff;
+}
+.header {
+  width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-nav > ul > li > a {
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+}
+.header-nav > ul > li:not(:last-child) {
+  padding-right: 56px;
+}
+/* ________________________________________ */
+#section-3d {
+  background: radial-gradient(
+    44.07% 44.07% at 67.78% 55.93%,
+    #555681 0%,
+    #212133 100%
+  );
+}
+.section-3d-all {
+  margin: 0 auto;
+  width: 70vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 80px;
+}
+.section-3d {
+  padding: 100px 0 130px 0;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-3d {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 100%;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+.text-3d {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 150%;
+  color: #ffffff;
+  margin-bottom: 70px;
+}
+.btn-3d {
+  border: none;
+  background: #3f2aff;
+  border-radius: 20px;
+  padding: 24px 75.5px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+}
+.btn-3d {
+  cursor: pointer;
+}
+/* _____________________________________________________ */
+
+.benefits-all {
+  width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.benefits-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.benefits-top > img {
+  margin-right: 30px;
+  height: 142px;
+}
+.header-text {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 100%;
+}
+.text-benefits {
+  margin-bottom: 30px;
+  width: 20vw;
+}
+.benefits-top-text > p {
+  font-family: "Roboto";
+  font-size: 16px;
+  line-height: 150%;
+  width: 30vw;
+  color: #666666;
+}
+.benefits-botton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+}
+.benefits-botton > img:not(:last-child) {
+  margin-right: 30px;
+}
+.benefits-botton > p {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #666666;
+}
+.benefits-botton > p:not(:last-child) {
+  margin-right: 30px;
+}
+/* ________________________________________________ */
+#teacher {
+  background: #212133;
+}
+.teacher {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 80px 0 80px 0;
+  margin-bottom: 80px;
+}
+.teachers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.teacher-card {
+  width: 255px;
+}
+.teacher > h1 {
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+.teacher-card > img {
+  margin-bottom: 30px;
+}
+.teacher-text > h4 {
+  margin-bottom: 15px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+  color: #ffffff;
+}
+.teacher-text > p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #85859b;
+}
+/* ________________________________________________________ */
+
+.cours-card-all {
+  width: 70vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 540px 540px;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 80px;
+}
+.cours > h1 {
+  width: 70vw;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.cours-teext {
+  height: 300px;
+  background: #edf0f9;
+  border-radius: 0px 0px 20px 20px;
+  max-height: fit-content;
+  padding: 30px;
+  position: relative;
+}
+.cours-teext > img {
+  margin-bottom: 30px;
+}
+.cours-teext > h2 {
+  margin-bottom: 15px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+  color: #212133;
+}
+.cours-teext {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #666666;
+}
+.cours-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: #3f2aff;
+  border-radius: 20px;
+  padding: 20.5px 59px;
+  border: none;
+  color: #ffffff;
+}
+.footer {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+.footer-top {
+  background: #2E2B44;
+  text-align: center;
+}
+.footer-logo {
+  height: initial;
+  padding: 20px 0 20px 0; 
+}
+.footer-bottom {
+  text-align: center;
+}
+.footer-bottom >p> span {
+  color: #3f2aff;
+}

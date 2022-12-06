@@ -1,0 +1,49 @@
+@use "colorMixin" as am;
+
+.footer {
+  margin: 0 auto;
+  display: flex;
+  padding: 30px 0;
+  
+  * {
+    color: am.$textColor;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  
+  &__left {
+    flex: 1;
+  }
+
+  &__center {
+    flex: 5;
+  }
+
+  &__right {
+    flex: 2;
+
+    &--logotip {
+      display: flex;
+      margin-bottom: 20px;
+    
+      &--left {
+        margin-right: 15px;
+        text-align: end;
+
+        p:not(:last-of-type) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    &--social {
+      text-align: end;
+
+      svg:not(:last-of-type) {
+        margin-right: 10px;
+      }
+    }
+  }
+}

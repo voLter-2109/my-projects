@@ -1,0 +1,84 @@
+@use "colorMixin" as am;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px auto 0 auto;
+  align-items: center;
+
+  &__logo {
+    flex: 2;
+    display: flex;
+    flex-wrap: nowrap;
+
+    &--left {
+      margin-right: 5px;
+      padding-top: 5px;
+    }
+  }
+
+  &__menu {
+    flex: 4;
+
+    &--nav {
+      display: flex;
+
+      li > a {
+        @include am.mainLinkText;
+      }
+
+      li:not(:last-of-type) {
+        margin-right: 50px;
+      }
+      li:first-of-type { 
+        margin-left: 30px;
+       }
+       li:last-of-type { 
+        margin-right: 30px;
+       }
+    }
+  }
+
+  &__search {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+
+    &--buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      &--left, &--right {
+        display: flex;
+        flex-direction: row;
+        margin-right: 30px;
+        
+        p,a, img {
+          padding: 0 10px;
+          @include am.mainLinkText;
+        }
+
+        p:not(:last-child) {
+          border-right: 1px solid black;
+        }
+      }
+    }
+    &--input {
+      padding: 10px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+    input {
+      font-size: 150%;
+      height: 43px;
+      font-family:sans-serif;
+      border: 1px solid black;
+      border-radius: 5px;
+      width: 100%;
+      padding-left: 10px;
+    }
+  }
+}
+

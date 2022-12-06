@@ -1,0 +1,35 @@
+{
+  "apple": {
+    "score": 1,
+    "price": 10,
+    "case": {
+      "price": "",
+      "name": "Abal",
+      "car": {
+        "name": "citroen",
+        "qwe": {
+          "wer": 123,
+          "score": 1,
+          "price": 10,
+          "asd": [1, 2, 3, 4]
+        }
+      }
+    }
+  },
+
+  "orange": {
+    "score": 2,
+    "price": 10
+  },
+
+  "greps": {
+    "score": 3,
+    "price": 10
+  },
+  
+  "test": "test",
+  "grrps": {
+    "score": 4,
+    "price": 10
+  }
+}

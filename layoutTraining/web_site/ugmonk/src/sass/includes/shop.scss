@@ -1,0 +1,111 @@
+@use "colorMixin" as am;
+
+.shop {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  &__list  {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    
+      ul  {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      
+
+        li {
+          cursor: pointer;
+          @include am.mainLinkText;
+        }
+        li:not(:last-of-type) {
+          margin-right: 15px;
+        }
+      }
+  }
+
+  &__main {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 15px;
+
+    .cardProduct {
+      border:1px solid rgb(184, 184, 184);
+      border-radius: 8px 8px 0 0;
+      box-shadow: 2px -4px 18px 0px rgba(212,212,212,1);
+      max-width: 240px;
+      transition: all 0.3s;
+
+      &:hover{
+        box-shadow: 6px -4px 18px 0px rgb(192, 191, 191);
+      }
+
+        &--img {
+          border-radius: 8px 8px 0 0;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        
+        &__nameProduct {
+          margin-left: 5px;
+          margin-bottom: 5px;
+          &--main {
+            @include am.nameProductMain;
+          }
+          &--alternative {
+            @include am.nameProductAlternative;
+          }
+        }
+
+        &__priceProduct {
+          del {
+            position: relative;
+            text-decoration: none;
+          }
+          del:before {
+            content: "";
+            border-bottom: 2px solid am.$textColor;
+            position: absolute;
+            top: 0;
+            left: 0;  
+            width: 100%;
+            height: 50%;
+          }
+          margin-bottom: 5px;
+          margin-left: 5px;
+        
+          &--main {
+            @include am.priceProductMain;
+          }
+          &--mainDiscount {
+            @include am.priseDiscount;
+          }
+          &--alternative {
+            @include am.priceProductAlternative;
+          }
+        }
+    }
+
+  }
+  .pageNumber {
+    margin: 0 auto;
+
+      &__select {
+        width: 30px;
+        height: 15px;
+        margin-right: 15px;
+        border-radius:5px;
+      }
+    .active {
+      background-color: rgb(235, 102, 102);
+      
+    }
+  }
+
+}

@@ -1,0 +1,55 @@
+@use 'sass:color';
+
+@mixin accentBlockTheme($themeName, $color) {
+  &--#{$themeName} {
+    $c_Bg: color.mix($color, white, 10%);
+    $c_Border: color.scale($color, $lightness: -20%);
+    $c_BorderLight: color.mix($color, white, 35%);
+    $c_Text: color.mix($color,black, 50%);
+
+    background: $c_Bg;
+    border-color: $c_Border;
+
+    header {
+      color: $color;
+      border-color: $c_BorderLight;
+    }
+
+    .content {
+      color: $c_Text;
+    }
+  }
+}
+
+body {
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  font-family: sans-serif;
+}
+
+.accent-block {
+  width: 600px;
+  margin-top: 35px;
+  background:white;
+  border: 2px solid grey;
+  border-radius: 5px;
+
+  header, .content {
+    padding: 15px 10px;
+  }
+  header {
+    color: #333;
+    font-style: 110%;
+    font-weight: bold;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .content p{
+    margin: 0;
+  }
+
+  @include accentBlockTheme("error", #b30000);
+  @include accentBlockTheme("success", #5fb300);
+}

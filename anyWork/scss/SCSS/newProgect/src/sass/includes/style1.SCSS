@@ -1,0 +1,15 @@
+@mixin avatar($size, $borderRadius: 0, $isInvert: false)
+{
+  width: $size;
+  height: $size;
+
+  @if ($isInvert) {
+    filter: invert(1);
+  }
+
+  @if ($borderRadius !=0) {
+  border-radius: $borderRadius;
+  }
+
+  @content
+}

@@ -1,0 +1,12 @@
+@use "includes/colors";
+@use "includes/border";
+
+
+p {
+  width: 80vw;
+  margin: 40px auto 0 auto;
+  font-size: 400%;
+  color: colors.$textColor;
+
+  @include border.brandBorder;
+}

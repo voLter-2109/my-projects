@@ -1,0 +1,5 @@
+@use "colors";
+
+@mixin brandBorder() {
+  border: 3px solid  colors.$brand;
+}

@@ -1,0 +1,11 @@
+.header {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  place-content: center;
+  margin-bottom: 50px;
+}
+.header_logo > img {
+  height: 150px;
+}
+

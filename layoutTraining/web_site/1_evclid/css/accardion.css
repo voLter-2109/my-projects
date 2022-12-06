@@ -1,0 +1,80 @@
+.accord-h {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 59px;
+  font-family: Montserrat;
+  color: #333333;
+}
+.accordion-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1rem;
+  color: #212529;
+  background-color: #fff;
+  border: 0;
+  border-radius: 0;
+
+  font-family: Montserrat;
+  overflow-anchor: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 32px;
+}
+.accard-img {
+  width: 30px;
+}
+.accordion-collapse {
+  height: fit-content;
+}
+.accordion-body {
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid #cacaca;
+}
+.accordion-collapse:not(.show) {
+  overflow: hidden;
+  height: 0;
+}
+
+.rotate-center {
+  transform: rotate(45deg);
+}
+.collapsed:not(.show) > svg {
+  transform: rotate(0deg);
+}
+
+.accordion-button:hover {
+  z-index: 2;
+  border-bottom: 1px solid #ff9900;
+}
+.accordion-button:focus {
+  z-index: 3;
+  border-bottom: 1ps solid #ff9900;
+}
+.accordion-header {
+  margin-bottom: 0;
+}
+.accordion-item {
+  background-color: #fff;
+}
+.accordion-button:hover {
+  color: #ff9900;
+}
+
+.accordion-button:hover > svg > ellipse {
+  fill: #ff9900;
+}
+.accordion-button:hover > svg > path {
+  fill: white;
+}
+.accordion-button {
+  border-bottom: 1px solid #cacaca;
+}
+.accordion {
+  margin-bottom: 60px;
+}

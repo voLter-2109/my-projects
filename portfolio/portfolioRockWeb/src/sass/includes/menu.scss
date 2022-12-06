@@ -1,0 +1,62 @@
+@use "../service/font.scss";
+@use "../service/keyframe.scss";
+@use "../service/mixin.scss";
+
+.menu {
+  position: fixed;
+  z-index: 1000;
+  width: 800px;
+  top: 3%;
+  right: 5%;
+  display: flex;
+  flex-direction: row;
+  padding-right: 50px;
+  justify-content: space-between;
+  padding-left: 30px;
+
+  .cell {
+    font-size: 140%;
+    display: block;
+    font-family: font.$fontArticleText, sans-serif;
+    text-align: center;
+    color: var(--mainColorText);
+    cursor: pointer;
+    transition: all 0.4s linear;
+    position: relative;
+
+      @include mixin.cellMenu(".cell");
+
+    &:nth-of-type(1)::after{
+      content: "START PAGE";
+    }
+    &:nth-of-type(2)::after{
+      content: "WORK";
+    }
+    &:nth-of-type(3)::after{
+      content: "ABOUT US";
+    }
+    &:nth-of-type(4)::after{
+      content: "CONTAKT";
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 0%;
+      height: 2px;
+      background-color: var(--redColor);
+      bottom: -4px;
+      left:-5%;
+      transition: all 0.4s linear;
+    }
+    &.active::before {
+      position: absolute;
+      content: "";
+      width: 110%;
+      height: 2px;
+      background-color: var(--redColor);
+      bottom: -4px;
+      left:-5%;
+    }
+  }
+}

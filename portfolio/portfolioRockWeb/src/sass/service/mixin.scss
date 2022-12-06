@@ -1,0 +1,41 @@
+@use "font";
+
+@mixin cellMenu ($selector) {
+  @for $i from 1 through 4{
+    &:nth-of-type(#{$i})::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0px;
+        overflow: hidden; 
+        transition: all 0.4s linear;
+      }
+
+      &:hover:after {
+        height: 100%;
+        color: var(--redColor);
+        transition: all 1s ease;
+      }
+  }
+}
+
+@mixin loading ($selector, $width){
+  #{$selector}{
+    width: #{$width};
+    height: 100%;
+    border-radius:5px;
+    opacity: 0.8;
+    background-color: var(--redColor);
+
+    & + span::after {
+      content: '#{$width}';
+      font-family: font.$fontArticleText, sans-serif;
+      font-size: 90%;
+      color: var(--mainColorText);
+    }
+  
+  }
+}

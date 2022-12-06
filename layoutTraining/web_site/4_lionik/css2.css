@@ -1,0 +1,452 @@
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("fonts/OpenSans-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Open Sans";
+    src: local("Open Sans Regular"), local("OpenSans-Regular"),
+      url("../fonts/OpenSans-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Open Sans";
+    src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"),
+      url("../fonts/OpenSans-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+
+/* Шрифты */
+.heading {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%;
+    color: #1c1c1c;
+} 
+.text {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 155%;
+    color: #787878; 
+    font-size: 16px;
+}
+
+  /* head */
+.header {
+    width: 1200px;
+   margin: 30px auto 0 auto;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    /* для проверки */
+    /* box-sizing: border-box;
+    border: 1px solid red; */
+    
+}
+
+.header-right {
+    font: normal 600 15px Open Sans;
+    line-height: 20px;
+    text-decoration: none;
+    color: #000000;  
+}
+.header-right a:hover {
+    color: #3172B9;
+    text-decoration: underline;
+}
+.header-right:not(:last-child) {
+    padding-right: 52px;
+}
+.header-right-buttom {
+    border: 1px solid transparent;
+    width: 150px;
+    height: 50px;
+    border-radius:3px ;
+    background-color: #3172B9;
+    color:white ;
+    font: normal 15px Open Sans;
+}
+.header-right-buttom:hover, .header-right-buttom:visited {
+    background-color: #C4C4C4;
+}
+
+
+/* hero */
+#hero {
+    height: 550px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(img-lionik/hero-bg.jpg);  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 87px;
+}
+.hero-left {
+    width: 1200px;
+   margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+ 
+}
+.hero-left .heading, .hero-left .text{
+    margin-bottom: 24px;
+}
+.hero-left-buttom {
+    color:white;
+    border: 1px solid transparent;
+    background-color: #3172B9;
+    border-radius: 3px;
+    width: 250px;
+    height: 58px;
+    margin-bottom: 14px;
+}
+.hero-left-buttom:hover, .hero-left-buttom:visited {
+    background-color: #C4C4C4;
+}
+.hero-left-footnote {
+    font-size: 11px;
+    background-image: url(img-lionik/Vector-sll.png);
+    background-repeat: no-repeat;
+    /* как разместить картинку рядом, без смщения текста */
+    padding-left: 20px;
+    margin-left: 60px;
+}
+.hero-left .heading {
+    font-size: 36px;
+}
+
+/* второй раздел */
+
+#servis {
+ width: 1200px;
+ margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 87px;
+}
+.servis-body {
+    display:flex;
+    flex-direction: row;
+    /* почему не работает!!!!!!!!! */
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.legacy {
+    width: 270px;
+    height: 320px;
+    border:1px solid #E4E4E4;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.servis-body-img {
+    margin:0 auto;
+}
+.legacy:not(:nth-of-type(4)) {
+    margin-right: 40px;
+}
+.servis-text {
+    margin-top: 20px;
+}
+.servis-heading {
+    font-size: 36px;
+}
+.servis-text {
+    font-size: 16px;
+}
+.serv, .ser {
+    margin-top: 21px;
+}
+
+/* третий раздел */
+
+.tree{
+    border-top: 1px solid #DADADA;
+    width: 1200px;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-bottom: 87px;
+   
+}
+.tree-heading-top {
+    margin-top: 60px;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.tree-block-block {
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 5px;
+    
+}
+.tree-block-block {
+    width: 570px;
+    box-sizing: border-box;
+
+}
+.tree-block-block1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tree-block-block1:not(:last-of-type) {
+    padding-bottom: 42px;
+}
+.tree-img {
+    background-repeat: no-repeat;
+float: left;
+padding-right: 30px;
+
+}
+.tree-footnote {
+    padding-top:23px;
+}
+.tree-heading {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+.tree-footnote {
+    font-size: 10px;
+}
+
+/* четвертый блог */
+.fore{
+    
+    border-top:1px solid #DADADA;
+    width: 1200px;
+    margin:0 auto;
+   
+}
+.fore-block{
+border:1px solid #DADADA;
+}
+.fore-text {
+    border-bottom: 1px solid #DADADA;
+}
+.fore-block-all {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 42px;
+    margin-bottom: 87px;
+}
+.fore-img {
+    float:left; 
+    padding-right: 10px;
+}
+
+.fore-block {
+    width: 370px;
+    padding: 36px;
+}
+.fore-top {
+    font-size: 36px;
+margin-top: 60px;
+}
+.fore-block-block {
+    padding-top: 33px ;
+    border: 1px solid transparent;
+    display: inline-flex;
+    flex-direction: row;
+}
+.fore-block-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fore-text {
+    padding-bottom: 33px;
+}
+
+/* как сделать фото и подпись без кучи дивов */
+.fore-heading {
+    font-weight: bold;
+    font-size: 17px;
+}
+.fore-footnote {
+    font-size: 14px;
+}
+.fore-heading-top {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* пятый раздел */
+
+
+.contacts-heading {
+    font-size: 32px;
+    margin-top: 60px;
+}
+.contacts{
+    width: 1200px;
+    margin:0 auto;
+    border-top:1px solid #DADADA;
+}
+.contacts-block-all {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 42px;
+    margin-bottom: 60px;
+}
+.contacts-block{
+    width: 370px;
+}
+.contacts-text, .contacts-text2 {
+    padding-top: 28px;
+}
+.contacts-block {
+padding-top: 80px;
+}
+.contacts-text {
+    font-size: 17px;
+    font-weight: bold;
+}
+.tel, .mail {
+    text-decoration: none;
+    color: #787878;
+}
+
+/* шестой раздел */
+
+.join{
+    border-top:1px solid #DADADA;
+    width: 1200px;
+    margin:0 auto;
+}
+.join-heading{
+    text-align: center;
+    font-size: 36px;
+    margin-top: 60px;
+}
+.join-text {
+    text-align: center;
+    font-size: 16px;
+}
+.join-block-all {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+}
+.join-block-left, .join-block-right {
+    width: 49%;
+}
+
+.input, .input1 {
+    padding: 15px 0 15px 15px;
+    width: 49%;
+    border:1px solid #DADADA;
+    border-radius: 50px;
+}
+.none {
+    display: none;
+}
+/* как выставить высоту не задавая дополнительный класс списку */
+.input3 {
+    height: 49%;
+    width: 49%;
+    border-radius: 50px;
+    padding-left: 15px;
+    border:1px solid #DADADA;
+}
+.input1, .input3 {
+    margin-top: 5px;
+}
+/* как изменить форму выпадающего списка? */
+.input3 {
+    color:#787878;
+}
+.comment {
+    border:1px solid #DADADA;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px;
+    resize: none;
+}
+.join-buttom {
+    margin-top: 15px;
+    float:right;
+    margin-bottom: 5px;
+}
+.join-text2 {
+    text-align: right;
+    clear: right;
+    font-size: 12px;
+    margin-bottom: 60px;
+
+    
+}
+/* футер */
+
+.footer{
+    width: 1200px;
+    height: 89px;
+    margin:0 auto;
+display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+    border-top:1px solid #dadada;
+}
+.footer-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ 
+}
+.footer-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.footet-text, .footer-left-img {
+    padding-right: 20px;
+}
+.footer-right-img:not(:last-of-type){
+    padding-right: 15px;
+}
+.footet-text {
+    text-decoration: none;
+    color: #787878;
+}
+
+.tel:hover, .tel:active,
+.mail:hover, .mail:active,
+.footet-text:hover, .footet-text:active {
+    color: #3172B9;
+}
+
+
+/* НАВЕДЕНИЕ НА ССЫЛКИ Articles */
+
+
+/* НАВЕДЕНИЕ НА ССЫЛКИ servis */
+

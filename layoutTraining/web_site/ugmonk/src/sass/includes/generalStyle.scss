@@ -1,0 +1,26 @@
+@use "colorMixin" as am;
+
+body {
+  background: am.$mainBackground;
+   
+  *{
+    font-family: sans-serif;
+  }
+
+  .enter{
+    width: 90vw;
+    height: 1px;
+    background:rgba(128, 128, 128, 0.319);
+    box-shadow: 1px 1px 6px 1px rgba(122, 122, 122, 0.319);
+    margin: 15px auto;
+  }
+
+  .container {
+    width: 80vw;
+  }
+
+ 
+}
+
+
+

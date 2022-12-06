@@ -1,0 +1,88 @@
+import { Component } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import MainNav from "./pages/header/Header";
+import Home from "./pages/home/HomePage";
+import OurCoffe from "./pages/OurCoffe/OurCoffe";
+import Pleasure from "./pages/pleasure/Pleasure";
+import OneItemCoffe from "./oneItemCodde";
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [
+        {
+          name: "Solimo Coffee Beans 2 kg",
+          prise: 10.73,
+          country: "Brazil",
+          best: "false",
+          id: 1,
+          url: "./img/coffe/presto.png",
+        },
+        {
+          name: "Presto Coffee Beans 1 kg",
+          prise: 15.99,
+          country: "Kenya",
+          best: "true",
+          id: 2,
+          url: "./img/coffe/AROMISTICO.png",
+        },
+        {
+          name: "AROMISTICO Coffee 1 kg",
+          prise: 6.99,
+          country: "Columbia",
+          best: "true",
+          id: 3,
+          url: "./img/coffe/solimo.png",
+        },
+        {
+          name: "Presto Coffee Beans 1 kg",
+          prise: 15.99,
+          country: "Kenya",
+          best: "true",
+          id: 4,
+          url: "./img/coffe/AROMISTICO.png",
+        },
+        {
+          name: "AROMISTICO Coffee 1 kg",
+          prise: 6.99,
+          country: "Columbia",
+
+          best: "true",
+          id: 5,
+          url: "./img/coffe/solimo.png",
+        },
+      ],
+    };
+  }
+
+  ShowBestCoffe = () => {
+    const { data } = this.state;
+    const newData = data.filter((item) => {
+      if (item.best === "true") {
+        return item;
+      }
+    });
+    return newData;
+  };
+
+  render() {
+    return (
+      <Routes>
+        <Route path="/" element={<MainNav />}>
+          <Route index element={<Home data={this.ShowBestCoffe()} />} />
+          <Route
+            path="/ourcoffee"
+            element={<OurCoffe data={this.state.data} />}
+          />
+          <Route
+            path="/:name"
+            element={<OneItemCoffe data={this.state.data} />}
+          />
+          <Route path="/foryourpleasure" element={<Pleasure />} />
+        </Route>
+      </Routes>
+    );
+  }
+}

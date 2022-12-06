@@ -1,0 +1,98 @@
+@use  "sass:map";
+
+$breakpoints: (
+  stretch: 1024px,
+  small: 800px,
+  mini: 500px
+);
+@debug map.keys($breakpoints);
+
+@mixin max-bp($breakpoint) {
+  @media (max-width: map.get($breakpoints , $breakpoint))
+  {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: #f0f0f0;
+
+  &::before {
+    content: "full";
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 200%;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @each $bp in map.keys($breakpoints) {
+      @include max-bp($bp) {
+        content: '#{$bp}';
+      }
+    }
+  }
+}
+
+.site {
+  position: relative;
+  top: 100px;
+  
+  background:white;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+
+  width: map.get($breakpoints, 'stretch')-30px;
+  margin: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  @include max-bp('stretch') {
+    width: auto;
+    margin: 0 15px;
+  }
+  
+  .header {
+    flex-basis: 100%;
+    height: 60px;
+    background: #ffd7d7;
+  }
+  .aside, .main {
+    flex: 1;
+    height: 400px;
+  }
+
+  .aside {
+    background: #e2ffd7;
+
+    @include max-bp('small') {
+      flex-basis: 100%;
+      order: 3;
+    }
+
+    @include max-bp('mini') {
+      height: 100px;
+    }
+  }
+
+  
+  
+  .main {
+    background: #f7d7ff;
+
+    @include max-bp('mini') {
+      height: 100px;
+    }
+  }
+  
+}
+

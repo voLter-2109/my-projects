@@ -1,0 +1,239 @@
+@use "../service/font.scss";
+@use "../service/mixin.scss";
+
+
+.mainWindow {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+
+  .darkMode {
+    position: fixed;
+    top: 1vh;
+    left:1vw;
+    overflow: hidden;
+    z-index: 11;
+
+      label {
+        width: 100px;
+        height: 25px;
+        position: relative;
+        display: block;
+        background: #ebebeb;
+        border-radius: 20px;
+        box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+          inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:after {
+          content: "";
+          width: 24%;
+          height: 90%;
+          position: absolute;
+          top: 5%;
+          left: 2%;
+          background: linear-gradient(180deg, #ffcc89, #d8860b);
+          border-radius: 50%;
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+          transition: 0.3s;
+        }
+
+        svg {
+          position: absolute;
+          width: 20%;
+          top: 10%;
+          z-index: 100;
+          &.sun {
+            left: 4%;
+            fill: #fff;
+            transition: 0.3s;
+          }
+          &.moon {
+            right: 4%;
+            fill: #7e7e7e;
+            transition: 0.3s;
+          }
+        }
+       }
+
+       input {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        &:checked + label {
+          background: #242424;
+          &:after {
+            left: 98%;
+            transform: translateX(-100%);
+            background: linear-gradient(180deg, #777, #3a3a3a);
+          }
+          svg {
+            &.sun {
+              fill: #7e7e7e;
+            }
+            &.moon {
+              fill: #fff;
+            }
+          }
+          + .background {
+            background: #242424;
+          }
+        }
+        &:active:after {
+          width: 260px;
+        }
+      }
+      
+    }
+
+  &__one {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // black
+    background-color: var(--darkColor);
+    // white
+    // background-color: white;
+    z-index: 10;
+
+   
+
+    @import "contentPageOne.scss";
+  
+    animation: slideOut 2000ms ease-in-out both paused;
+
+      &__line {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100px;
+        background-image: url("../img/mainpage/movie2.png");
+        z-index: 1;
+
+        &.left {
+          left: calc(30% + 30px);
+          background-position: 50% 0%;
+          animation: moveup 25s linear infinite;
+        }
+        
+        &.right {
+          right: calc(29% + 30px);
+          background-position: 50% 100%;
+          animation: movedown 25s linear infinite;
+        }
+      }
+
+      &__img {
+        flex: 1;
+        height: 100%;
+
+        &.text {
+          background-image: url("../img/mainpage/text.jpg");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          opacity: 0.5;
+        }
+        &.dragon {
+          background-image: url("../img/mainpage/dragon.jpg");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          opacity: 0.5;
+        }
+      }
+
+    &__imgScroll {
+      position: fixed;
+      top: calc(85% - 75px);
+      left: calc(50% - 75px);
+      z-index: 11;
+      width: 150px;
+      filter:grayscale(0.5);
+      transition: opacity 0.5s ease;
+      animation: flicker 12s ease infinite;
+      cursor: pointer;
+    }
+  }
+
+  &__two {
+    position: absolute;
+    background-color: black;
+    /* opacity: 0.4; */
+  
+    top: 0;
+    left: 0;
+    z-index: 9;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+
+      // slider
+      @import "contentPageTwo_windowOne.scss";
+      @import "contentPageTwo_windowTwo.scss";
+
+    scrollbar-color: black #e0b875; /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: 10px; /* толщина */
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: black;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: red;
+    }
+  
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      opacity: 0.2;
+      background-image: url("../../img/pageTwo/backgroundTwo.jpg");
+      background-repeat: repeat;
+      background-size: contain;
+    }
+
+    &__movieBlock {
+      position: absolute;
+      top: calc(100vh - 35vh);
+      left: calc(50vw - 20vw);
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+      width: 40vw;
+      height: 70vh;
+
+      .circleThree {
+        position: absolute;
+        transform: scale(0.9);
+        transform-origin: center center;
+        animation: rotateClockWise 60s linear infinite;
+        opacity: 0.2;
+      }
+
+      .circleTwo {
+        position: absolute;
+        opacity: 0.5;
+        animation: rotateClockContraWise 80s linear infinite;
+      }
+
+      .circleOne {
+        position: absolute;
+        opacity: 0.5;
+        animation: ClockWiseOne 100s linear infinite;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,173 @@
+.tabs {
+  width: 100%;
+}
+/* Стили для списка вкладок */
+.tab-header {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+/* Стили для вкладки */
+.tab-header__item {
+  padding-bottom: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-bottom: none;
+}
+/* Стили для активной вкладки */
+.tab-header__item.active {
+  position: relative;
+  top: 1px;
+  color: #e1670e;
+}
+/* Стиль для списка контейнеров с содержимым вкладок */
+.tab-content {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* Стили для контейнера с содержимым вкладки */
+.tab-content__item {
+  display: none;
+}
+/* Стили для активного контейнера вкладки */
+.tab-content__item.active {
+  display: block;
+}
+.tb-cnts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 80px;
+}
+.tb-tx {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tab-header {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.tb-count {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 8px;
+}
+.tb-txs {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: black;
+  margin-bottom: 50px;
+}
+.tab-button1 {
+  background-color: #ff9900;
+  padding: 16px 40px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  border: transparent;
+  color: white;
+  margin-right: 32px;
+}
+.tab-foto1 {
+  background-image: url(../img/tab1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.tab-foto2 {
+  background-image: url(../img/tab2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.tab-foto3 {
+  background-image: url(../img/tab3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.tab-foto4 {
+  background-image: url(../img/tab4.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.tab-button2 {
+  padding: 15px 39px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  border: 1px solid #333333;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+.tab-header__item:hover {
+  color: #ff9900;
+}
+.tab {
+  /* border: 1px solid red; */
+  height: fit-content;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 870px) {
+  .tb-cnts {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  .tab-header {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .tb-cnts {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "tab-fotoAll"
+      "tb-tx";
+  }
+  .tab-header {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .tab-fotoAll {
+    /* border: 1px solid red; */
+    display: block;
+    grid-area: tab-fotoAll;
+    height: calc(160px + (300 - 160) * ((100vw - 320px) / (768 - 320)));
+  }
+  .tb-tx {
+    grid-area: tb-tx;
+  }
+  .tab-button1 {
+    padding: calc(12px + (16 - 12) * ((100vw - 320px) / (768 - 320)))
+      calc(30px + (40 - 30) * ((100vw - 320px) / (768 - 320)));
+    font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (768 - 320)));
+    line-height: calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320)));
+    margin-right: calc(13px + (32 - 13) * ((100vw - 320px) / (768 - 320)));
+  }
+  .tab-button2 {
+    padding: calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320)))
+      calc(39px + (39 - 39) * ((100vw - 320px) / (768 - 320)));
+    font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (768 - 320)));
+    line-height: calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320)));
+  }
+  .tb-count {
+    font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (768 - 320)));
+  }
+}
+@media (max-width: 320px) {
+.tab {
+  margin-bottom: -50px;
+}
+}

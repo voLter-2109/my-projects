@@ -1,0 +1,110 @@
+@use "../service/font.scss";
+@use "../service/mixin.scss";
+
+.mainWindow__one__text {
+    position: absolute;
+    top:10%;
+    left:7%; 
+    z-index: 2;
+    opacity: 0.7;
+
+      h1 {
+        font-family: font.$fontHeader,sans-serif;
+        color: var(--colorH1);
+        font-size: 1400%;
+        line-height: 1.1;
+        user-select: none;
+        padding-left: 1%;
+        border-left: 3px solid rgb(73, 73, 73);
+      }
+
+      h2 {
+        font-family: font.$fontArticleText, sans-serif;
+        font-size: 300%;
+        position: absolute;
+        top:44%;
+        left: -6.5%;
+        color: var(--mainColorText);
+        user-select: none;
+
+          span {
+          color: var(--redColor);
+          user-select: none;
+          }
+      }
+
+    &::after {
+      content: "";
+      width: 110%;
+      height: 3px;
+      background-color: var(--redColor);
+      opacity: 0.5;
+      position: absolute;
+      top: 82%;
+      left:-10% 
+    }
+  }
+
+        .mainWindow__one__information {
+        position: absolute;
+        top: 10%;
+        right:3%;
+        height: 80vh; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        z-index: 11;
+
+        // border:1px solid red;
+
+        img{
+              height: 400px;
+              border-bottom: 4px solid rgb(20,19,20);
+              border-radius: 10px;
+              margin-bottom: 10px;
+              opacity: 0.9;
+              box-shadow: 2px 2px 10px black;
+              
+            }
+
+          .skils {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            
+            h2 {
+              font-size: 200%;
+              color: var(--mainColorText);
+            }
+
+            .skil {
+              margin-bottom: 15px;
+            }
+
+              span {
+                font-family: font.$fontArticleText, sans-serif;
+                font-size: 130%;
+                color: var(--mainColorText); 
+              }
+
+              .loading {
+                width: 400px;
+                height: 20px;
+                border: 1px solid var(--redColor);
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                align-items:center;
+                padding-right: 5px;
+              }
+          } 
+
+
+          $arr: (".html" 80%, ".sass" 75%, ".js" 70%);
+
+          @each $selector, $skil in $arr {
+            @include mixin.loading($selector, $skil);
+          }
+        }

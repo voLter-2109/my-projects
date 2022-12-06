@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.wrapper {
+  margin-top: 40px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 70px 70px 70px 70px;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.coob {
+  height: 70px;
+  border: 1px solid black;
+  background-color: rgb(170, 164, 164);
+  border-radius: 10px;
+}
+
+.grey {
+  background-color: black ;
+}
+
+.animation {
+  width: 80%;
+  margin: 0 auto;
+  height: 40px;
+  border: 1px solid red;
+  position: relative;
+}
+.block{
+  width: 10.1%;
+  height: 100%;
+  background-color:brown;
+  position: absolute;
+  left: 0;
+}

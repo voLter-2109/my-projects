@@ -1,0 +1,43 @@
+body {
+  display: flex;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul{ 
+  list-style: none;
+}
+
+.nav {
+  align-items: center;
+  flex: 1;
+  border: 1px solid red;
+  position: relative;
+  height: 50px;
+  padding: 15px;
+}
+.two {
+  flex: 2;
+}
+.spisok {
+  border: 1px solid black;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50px;
+  padding: 10px;
+  position: absolute;
+  top: 49px;
+}
+
+/* span:hover > ul {
+  display: block;
+} */
+/* .two {
+  display: none;
+} */
+/* .one:hover > ul {
+  display: block;
+} */
