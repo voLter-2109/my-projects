@@ -16,7 +16,7 @@ export default class App extends Component {
           name: "Solimo Coffee Beans 2 kg",
           prise: 10.73,
           country: "Brazil",
-          best: "false",
+          best: "true",
           id: 1,
           url: "./img/coffe/presto.png",
         },
