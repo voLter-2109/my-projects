@@ -1,34 +1,18 @@
 import "./App.css";
+import Header from "./components/Header/Header";
+import NavBar from "./components/NavBar/NavBar";
+import Profile from "./components/profile/Profile";
 
 function App() {
   return (
-    <div className="app-wrapper">
-      <header className="header">
-        <img src="https://cdn.logo.com/hotlink-ok/logo-social.png" alt="logo" />
-      </header>
-
-      <nav className="nav">
-        <ul>
-          <li>
-            <a href="">Profile</a>
-          </li>
-          <li>
-            <a href="">Messages</a>
-          </li>
-          <li>
-            <a href="">News</a>
-          </li>
-          <li>
-            <a href="">Music</a>
-          </li>
-          <li>
-            <a href="">Settings</a>
-          </li>
-        </ul>
-      </nav>
-      <div className="blockContent">Main Content</div>
-    </div>
-  );
+    <>
+      <div className="app-wrapper">
+        <Header />
+        <NavBar />
+        <Profile />
+      </div>
+    </>
+  )
 }
 
 export default App;

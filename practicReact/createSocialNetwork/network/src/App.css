@@ -6,39 +6,8 @@
   margin: 0 auto;
   grid-template-areas:
     "header header"
-    "nav blockContent";
+    "nav content";
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 1.5fr 10fr;
   padding: 10px 0;
-}
-
-.header {
-  grid-area: header;
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px rgb(0, 0, 0, 0.2);
-
-  display: flex;
-  align-items: center;
-}
-.header > img {
-  width: 100px;
-  justify-content: start;
-}
-.nav {
-  grid-area: nav;
-  border: 1px solid black;
-  border-radius: 5px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  padding: 10px;
-}
-.blockContent {
-  grid-area: blockContent;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 10px;
 }

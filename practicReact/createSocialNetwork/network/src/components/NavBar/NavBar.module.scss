@@ -1,0 +1,17 @@
+.nav {
+  grid-area: nav;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 10px;
+
+  background-color: rgb(196, 194, 194);
+
+  & li {
+    list-style-type: none;
+  }
+}
