@@ -1,11 +1,11 @@
 import s from "./Post.module.scss";
 
-const Post = () => {
+const Post = (props) => {
   return (
     <>
-    <div>Post1</div>
+      <div>{props.message}</div>
     </>
-  )
-}
+  );
+};
 
 export default Post;

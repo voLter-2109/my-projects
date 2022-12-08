@@ -6,11 +6,16 @@ const MyPosts = () => {
     <>
       <div>My Post</div>
       <div>New Post</div>
-      <Post/>
-      <Post/>
-      <Post/>
+      <div className={s.message}>
+          <Post message="hi" />
+          <Post message="fine" />
+          <Post message="fine" />
+          <Post message="fine" />
+
+ 
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default MyPosts;

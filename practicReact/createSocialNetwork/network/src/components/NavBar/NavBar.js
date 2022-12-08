@@ -1,23 +1,36 @@
+import { NavLink } from "react-router-dom";
+
 import s from "./NavBar.module.scss";
+
+let activeClass = { color: "black" };
 
 const NavBar = () => {
   return (
     <nav className={s.nav}>
       <ul>
         <li>
-          <a href="">Profile</a>
+          <NavLink
+            style={({ isActive }) => (isActive ? activeClass : undefined)}
+            to=""
+          >
+            Profile
+          </NavLink>
         </li>
         <li>
-          <a href="">Messages</a>
+          <NavLink
+            style={({ isActive }) => (isActive ? activeClass : undefined)}
+            to="dialogs"
+          >
+            Dialogs
+          </NavLink>
         </li>
         <li>
-          <a href="">News</a>
-        </li>
-        <li>
-          <a href="">Music</a>
-        </li>
-        <li>
-          <a href="">Settings</a>
+          <NavLink
+            style={({ isActive }) => (isActive ? activeClass : undefined)}
+            to="/error"
+          >
+            error
+          </NavLink>
         </li>
       </ul>
     </nav>
