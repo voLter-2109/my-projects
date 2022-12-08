@@ -1,8 +1,8 @@
 import { Component, Fragment } from "react";
-import { HeaderStyle } from "../header/headerStyle";
+import { HeaderStyle } from "../Header/headerStyle";
 import styled from "styled-components";
 
-import CreateCardItem from "../../CreateCardItem";
+import CreateCardItem from "../Card/card";
 
 const HeaderOurCoffe = styled(HeaderStyle)`
   background-image: url("./img/header/ourCoffe.png");

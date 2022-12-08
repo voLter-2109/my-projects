@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import MainNav from "./pages/header/Header";
+import MainNav from "./pages/Header/Header";
 import Home from "./pages/home/HomePage";
 import OurCoffe from "./pages/OurCoffe/OurCoffe";
 import Pleasure from "./pages/pleasure/Pleasure";

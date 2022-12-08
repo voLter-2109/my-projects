@@ -1,8 +1,8 @@
 import { Component, Fragment } from "react";
-import { HeaderStyle } from "../header/headerStyle";
+import { HeaderStyle } from "../Header/headerStyle";
 import styled from "styled-components";
 
-import CreateCardItem from "../../CreateCardItem";
+import CreateCardItem from "../Card/card";
 
 const AboutUs = styled.div`
   display: block;
@@ -53,6 +53,14 @@ const MainBlock = styled.div`
   justify-content: space-between;
 `;
 
+const CardsBlock = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-around;
+  margin-top: 20px;
+`;
+
 export default class Home extends Component {
   CreateList = () => {
     const element = this.props.data.map((item) => {
@@ -99,7 +107,8 @@ export default class Home extends Component {
             ladies now.
           </p>
         </AboutUs>
-        {this.CreateList()}
+        <CardsBlock>{this.CreateList()}</CardsBlock>
+
         <footer
           style={{ height: 300, backgroundColor: "grey", marginTop: 40 }}
         />

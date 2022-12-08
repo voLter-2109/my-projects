@@ -1,5 +1,5 @@
 import { Component, Fragment } from "react";
-import { HeaderStyle } from "../header/headerStyle";
+import { HeaderStyle } from "../Header/headerStyle";
 import styled from "styled-components";
 
 const HeaderPleasure = styled(HeaderStyle)`
