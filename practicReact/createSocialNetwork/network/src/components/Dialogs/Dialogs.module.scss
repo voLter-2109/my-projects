@@ -1,24 +1,52 @@
 .container {
   display: grid;
   grid-template-areas: "dialogs dialog";
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 15% 1fr;
   height: 100%;
   gap: 20px;
 }
 
 .dialogs {
   grid-area: dialogs;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
+  text-align: center;
 
   & a:not(:first-child) {
     margin-bottom: 15px;
+    border: 1px solid red;
+    padding: 10px 5px;
+    border-radius: 10px;
   }
+}
 
+.activeClass {
+  color: black;
+  background-color: rgb(197, 118, 118);
+  box-shadow: 2px 2px 10px rgb(0, 0, 0, .2);
 }
 
 .dialog {
-  border: 1px solid red;
   grid-area: dialog;
+
+  p {
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 10px 10px 0 10px;
+    margin-bottom: 10px;
+    background-color: rgb(193, 130, 130);
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 100%;
+      background-color: rgb(193, 130, 130);
+      height: 10px;
+      width: 10px;
+      clip-path: path("M10,10H0V0H0A10,10,0,0,0,10,10Z");
+
+    }
+  }
 }

@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       dialogId: "0",
       dialogs: [
-        { name: "", id: "0", message: [null] },
+        { name: "", id: "0", message: ["hi", "hi Ivan"] },
         { name: "Ivan", id: "1", message: ["hi", "hi Ivan"] },
         { name: "Sau", id: "2", message: ["hi", "hi Sau"] },
         { name: "Kost", id: "3", message: ["hi", "hi Kost"] },

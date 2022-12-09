@@ -23,7 +23,6 @@
 
     display: flex;
     align-items: center;
-    padding-left: 300px;
 
     .avatar {
       height: 200px;
@@ -42,6 +41,7 @@
     .name {
       color: white;
       font-size: 2em;
+      padding-left: 300px;
     }
   }
 }

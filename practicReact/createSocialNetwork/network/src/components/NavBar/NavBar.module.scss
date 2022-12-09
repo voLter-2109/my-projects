@@ -5,15 +5,17 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  padding-top: 10px;
+  text-align: center;
+  padding: 10px;
 
   background-color: rgb(196, 194, 194);
 
-  & li {
+  a {
     list-style-type: none;
+    margin-bottom: 15px;
+    border: 1px solid red;
+    padding: 10px 5px;
+    border-radius: 10px;
   }
 
 }
-
