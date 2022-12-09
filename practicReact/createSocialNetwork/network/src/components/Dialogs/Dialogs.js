@@ -1,16 +1,42 @@
 import s from "./Dialogs.module.scss";
 
-const Dialogs = (props) => {
-  return (
-    <>
-  <div>
-2131
-  </div>
-  <div>
+import { NavLink, Outlet } from "react-router-dom";
 
-  </div>
-  </>
-    )
+const Dialogs = (props) => {
+  let activeClass = { color: "black" };
+
+  const tests = (e) => {
+    const id = e.target.getAttribute("data-id");
+    props.onDialogId(id);
+  };
+
+  const DialogName = () => {
+    const dialog = props.data.dialogs.map((item) => {
+      return (
+        <NavLink
+          style={({ isActive }) => (isActive ? activeClass : undefined)}
+          data-id={item.id}
+          key={item.id}
+          to={`/dialogs/${item.id}`}
+          onClick={tests}
+        >
+          {item.name}
+        </NavLink>
+      );
+    });
+    return dialog;
+  };
+
+  return (
+    <div className={s.container}>
+      <div className={s.dialogs}>
+        <DialogName />
+      </div>
+      <div className={s.dialog}>
+        <Outlet />
+      </div>
+    </div>
+  );
 };
 
 export default Dialogs;

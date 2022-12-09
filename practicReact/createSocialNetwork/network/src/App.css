@@ -12,9 +12,3 @@
   padding: 10px 0;
 }
 
-.app-wrapper_content {
-  grid-area: content;
-  border-radius: 10px;
-  background-color: rgb(196, 194, 194);
-  border: 1px solid black;
-}

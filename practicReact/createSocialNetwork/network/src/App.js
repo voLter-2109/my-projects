@@ -1,39 +1,61 @@
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import Header from "./components/Header/Header";
-import NavBar from "./components/NavBar/NavBar";
+import Layout from "./components/Layout/Layout";
 import Profile from "./components/profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
-import ErrorPage from "./components/profile/error/errorPage";
+import ErrorPage from "./components/error/errorPage";
+import Dialog from "./components/Dialogs/Dialog";
+import { Component } from "react";
 
-let state = {
-  dialogs: {
-    Ivan: ["hi", "hi Ivan"],
-    Svet: ["hi", "hi Svet"],
-    Alex: ["hi", "hi Alex"],
-    Kost: ["hi", "hi Kost"],
-    Saus: ["hi", "hi Saus"],
-  },
-};
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dialogId: "0",
+      dialogs: [
+        { name: "", id: "0", message: [null] },
+        { name: "Ivan", id: "1", message: ["hi", "hi Ivan"] },
+        { name: "Sau", id: "2", message: ["hi", "hi Sau"] },
+        { name: "Kost", id: "3", message: ["hi", "hi Kost"] },
+        { name: "Ros", id: "4", message: ["hi", "hi Ros"] },
+      ],
+    };
+  }
 
-function App() {
-  return (
-    <>
-      <div className="app-wrapper">
-        <Header />
-        <NavBar />
+  onDialogId = (id) => {
+    this.setState({
+      dialogId: id,
+    });
+  };
+  dialogId = () => {
+    let dialog = this.state.dialogs.find(
+      (item) => item.id === this.state.dialogId
+    );
+    return dialog;
+  };
 
-        <div className="app-wrapper_content">
-          <Routes>
+  render() {
+    const test = this.dialogId();
+    return (
+      <>
+        <Routes>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Profile />} />
-            <Route path="/dialogs/" element={<Dialogs />} />
+            <Route
+              path="/dialogs"
+              element={
+                <Dialogs onDialogId={this.onDialogId} data={this.state} />
+              }
+            >
+              <Route path="/dialogs/:id" element={<Dialog data={test} />} />
+            </Route>
             <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </div>
-      </div>
-    </>
-  );
+          </Route>
+        </Routes>
+      </>
+    );
+  }
 }
 
 export default App;
