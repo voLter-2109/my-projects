@@ -1,26 +1,18 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Component } from "react";
 
 import "./App.css";
+
 import Layout from "./components/Layout/Layout";
 import Profile from "./components/profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import ErrorPage from "./components/error/errorPage";
-import Dialog from "./components/Dialogs/Dialog";
-import { Component } from "react";
+import Dialog from "./components/Dialogs/Message";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      dialogId: "0",
-      dialogs: [
-        { name: "", id: "0", message: ["hi", "hi Ivan"] },
-        { name: "Ivan", id: "1", message: ["hi", "hi Ivan"] },
-        { name: "Sau", id: "2", message: ["hi", "hi Sau"] },
-        { name: "Kost", id: "3", message: ["hi", "hi Kost"] },
-        { name: "Ros", id: "4", message: ["hi", "hi Ros"] },
-      ],
-    };
+    this.state = this.props.state;
   }
 
   onDialogId = (id) => {
@@ -39,20 +31,31 @@ class App extends Component {
     const test = this.dialogId();
     return (
       <>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Profile />} />
-            <Route
-              path="/dialogs"
-              element={
-                <Dialogs onDialogId={this.onDialogId} data={this.state} />
-              }
-            >
-              <Route path="/dialogs/:id" element={<Dialog data={test} />} />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              {/* start profile component */}
+              <Route
+                index
+                element={<Profile stateProfile={this.state.profile} />}
+              />
+              {/* end */}
+
+              {/* start dialog component */}
+              <Route
+                path="/dialogs"
+                element={
+                  <Dialogs onDialogId={this.onDialogId} data={this.state} />
+                }
+              >
+                <Route path="/dialogs/:id" element={<Dialog data={test} />} />
+              </Route>
+              {/* end */}
+
+              <Route path="*" element={<ErrorPage />} />
             </Route>
-            <Route path="*" element={<ErrorPage />} />
-          </Route>
-        </Routes>
+          </Routes>
+        </BrowserRouter>
       </>
     );
   }
