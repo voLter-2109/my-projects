@@ -28,7 +28,7 @@ class App extends Component {
   };
 
   render() {
-    const test = this.dialogId();
+    const message = this.dialogId();
     return (
       <>
         <BrowserRouter>
@@ -48,7 +48,10 @@ class App extends Component {
                   <Dialogs onDialogId={this.onDialogId} data={this.state} />
                 }
               >
-                <Route path="/dialogs/:id" element={<Dialog data={test} />} />
+                <Route
+                  path="/dialogs/:id"
+                  element={<Dialog data={message} />}
+                />
               </Route>
               {/* end */}
 
