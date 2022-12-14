@@ -1,8 +1,11 @@
 import s from "./Dialogs.module.scss";
 
 import { NavLink, Outlet } from "react-router-dom";
+import React from "react";
 
 const Dialogs = (props) => {
+  let netMessageElement = React.createRef();
+
   let activeClass = {
     color: "black",
     backgroundColor: "rgb(197, 118, 118)",
@@ -10,9 +13,14 @@ const Dialogs = (props) => {
     textDecoration: "none",
   };
 
-  const tests = (e) => {
+  const onDialogId = (e) => {
     const id = e.target.getAttribute("data-id");
     props.onDialogId(id);
+  };
+
+  const onNewMessage = () => {
+    let text = netMessageElement.current.value;
+    console.log(text);
   };
 
   const DialogName = () => {
@@ -23,7 +31,7 @@ const Dialogs = (props) => {
           data-id={item.id}
           key={item.id}
           to={`/dialogs/${item.id}`}
-          onClick={tests}
+          onClick={onDialogId}
         >
           {item.name}
         </NavLink>
@@ -39,6 +47,13 @@ const Dialogs = (props) => {
       </div>
       <div className={s.dialog}>
         <Outlet />
+      </div>
+      <div className={s.newpost}>
+        <textarea
+          ref={netMessageElement}
+          placeholder="write new post"
+        ></textarea>
+        <button onClick={onNewMessage}>Post</button>
       </div>
     </div>
   );

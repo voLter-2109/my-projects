@@ -9,13 +9,65 @@ const state = {
     {
       name: "",
       id: "0",
-      message: ["hi", "hi Ivan"],
-      url: "",
+      message: [{ id: "me", message: "select dialog" }],
     },
-    { name: "Ivan", id: "1", message: ["hi", "hi Ivan"], url: "" },
-    { name: "Sau", id: "2", message: ["hi", "hi Sau"], url: "" },
-    { name: "Kost", id: "3", message: ["hi", "hi Kost"], url: "" },
-    { name: "Ros", id: "4", message: ["hi", "hi Ros"], url: "" },
+    {
+      name: "Ivan",
+      id: "1",
+      message: [
+        { id: "me", message: "hi" },
+        { id: "you", message: "hi Ivan" },
+        { id: "me", message: "YO" },
+        { id: "you", message: "hi Ros" },
+        { id: "you", message: "React" },
+      ],
+    },
+    {
+      name: "Sau",
+      id: "2",
+      message: [
+        { id: "me", message: "hi" },
+        { id: "you", message: "hi Sau" },
+        { id: "you", message: "hi Ros" },
+        { id: "you", message: "React" },
+      ],
+    },
+    {
+      name: "Kost",
+      id: "3",
+      message: [
+        { id: "me", message: "hi" },
+        { id: "you", message: "hi Kost" },
+        { id: "me", message: "YO" },
+        { id: "me", message: "hi" },
+        { id: "you", message: "hi Kost" },
+        { id: "me", message: "YO" },
+      ],
+    },
+    {
+      name: "Ros",
+      id: "4",
+      message: [
+        { id: "me", message: "hi" },
+        { id: "you", message: "hi Ros" },
+        { id: "you", message: "React" },
+        { id: "me", message: "YO" },
+      ],
+    },
+  ],
+  friends: [
+    {
+      name: "Ivan",
+      url: "https://img.freepik.com/premium-psd/3d-illustration-smiling-mature-man-cartoon-close-up-portrait-standing-gray-hair-man-blue-background-3d-avatar-ui-ux_1020-5075.jpg?w=2000",
+    },
+    {
+      name: "Kost",
+      url: "https://img.freepik.com/premium-psd/3d-illustration-smiling-caucasian-man-cartoon-close-up-portrait-standing-caucasian-man-with-moustache-yellow-background-3d-avatar-ui-ux_1020-5070.jpg",
+    },
+    {
+      name: "Ros",
+      url: "https://img.freepik.com/premium-psd/3d-illustration-3d-cartoon-avatar-stylish-old-man-with-mustache-cartoon-close-up-portrait-gray-background-3d-avatar-ui-ux_1020-5088.jpg?w=360",
+    },
   ],
 
   dialogId: "0",

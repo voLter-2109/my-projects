@@ -20,6 +20,7 @@ class App extends Component {
       dialogId: id,
     });
   };
+
   dialogId = () => {
     let dialog = this.state.dialogs.find(
       (item) => item.id === this.state.dialogId
@@ -33,7 +34,7 @@ class App extends Component {
       <>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Layout friends={this.state.friends} />}>
               {/* start profile component */}
               <Route
                 index

@@ -3,16 +3,17 @@ import Header from "./Header/Header";
 import NavBar from "./NavBar/NavBar";
 import s from "./Layout.module.scss";
 
-const Layout = () => {
+const Layout = (props) => {
+  // debugger;
   return (
     <>
       <div className="app-wrapper">
         <Header />
-        <NavBar />
-      
-      <div className={s.content}>
-        <Outlet />
-      </div>
+        <NavBar frineds={props.friends} />
+
+        <div className={s.content}>
+          <Outlet />
+        </div>
       </div>
     </>
   );

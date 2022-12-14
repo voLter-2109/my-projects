@@ -8,7 +8,21 @@ let activeClass = {
   boxShadow: "2px 2px 10px rgb(0, 0, 0, .2)",
   textDecoration: "none",
 };
-const NavBar = () => {
+const NavBar = (props) => {
+  const Friends = () => {
+    const friend = props.frineds.map((f) => {
+      return (
+        <>
+          <div className={s.friend}>
+            <img src={f.url} alt="" />
+            <p>{f.name}</p>
+          </div>
+        </>
+      );
+    });
+    return friend;
+  };
+   
   return (
     <nav className={s.nav}>
       <NavLink
@@ -31,6 +45,10 @@ const NavBar = () => {
       >
         error
       </NavLink>
+      <h1>Friends</h1>
+      <div>
+        <Friends />
+      </div>
     </nav>
   );
 };

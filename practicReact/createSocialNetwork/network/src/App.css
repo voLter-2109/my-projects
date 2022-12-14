@@ -2,7 +2,7 @@
   display: grid;
   gap: 10px;
   width: 1200px;
-  height: 100vh;
+  height: 94vh;
   margin: 0 auto;
   grid-template-areas:
     "header header"
