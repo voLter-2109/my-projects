@@ -38,7 +38,13 @@ class App extends Component {
               {/* start profile component */}
               <Route
                 index
-                element={<Profile stateProfile={this.state.profile} />}
+                element={
+                  <Profile
+                    stateProfile={this.state.profile}
+                    addPost={this.props.addPost}
+                    updateNewPost={this.props.updateNewPost}
+                  />
+                }
               />
               {/* end */}
 

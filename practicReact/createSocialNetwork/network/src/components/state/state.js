@@ -1,9 +1,12 @@
+import { renderEntireTree } from "../../render";
+
 const state = {
   profile: {
     name: "Aleksey Flechin",
     urlAvatar: "./img/profileImg/avatar.png",
     urlMainPhoto: "./img/profileImg/profileMainImg.jpg",
     posts: ["hi", "my name", "Alex", "Yo"],
+    newPostText: "hi",
   },
   dialogs: [
     {
@@ -71,6 +74,17 @@ const state = {
   ],
 
   dialogId: "0",
+};
+
+export let addPost = () => {
+  state.profile.posts.push(state.profile.newPostText);
+  state.profile.newPostText = "";
+  renderEntireTree(state);
+};
+
+export let updateNewPost = (newText) => {
+  state.profile.newPostText = newText;
+  renderEntireTree(state);
 };
 
 export default state;
