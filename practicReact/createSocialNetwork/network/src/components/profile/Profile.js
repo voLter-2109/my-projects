@@ -2,8 +2,8 @@ import s from "./Profile.module.scss";
 import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = (props) => {
-  const { name, urlAvatar, urlMainPhoto, posts, newPostText } =
-    props.stateProfile;
+  const { name, urlAvatar, urlMainPhoto, posts } = props.stateProfile;
+
   return (
     <>
       <div className={s.profile}>
@@ -19,8 +19,8 @@ const Profile = (props) => {
           </div>
         </div>
         <MyPosts
-          newPostText={newPostText}
-          data={posts}
+          store={posts}
+          newPostText={props.newPostText}
           addPost={props.addPost}
           updateNewPost={props.updateNewPost}
         />

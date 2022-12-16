@@ -4,6 +4,7 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
   let newPostElement = React.createRef();
+  debugger;
 
   const addPost = () => {
     props.addPost();
@@ -19,13 +20,13 @@ const MyPosts = (props) => {
       <div>New Post</div>
       <textarea
         ref={newPostElement}
-        value={props.newPostText}
+        value={props.store._state.profile.newPostText}
         onChange={onPostChange}
       />
       <button onClick={addPost}>Post</button>
       <div>My Post</div>
       <div className={s.message}>
-        <Post messages={props.data} />
+        <Post messages={props.store} />
       </div>
     </>
   );
