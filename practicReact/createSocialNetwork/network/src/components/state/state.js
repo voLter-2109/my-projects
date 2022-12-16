@@ -81,7 +81,7 @@ const store = {
   },
 
   addPost() {
-    debugger;
+
     this._state.profile.posts.push(this._state.profile.newPostText);
     this._state.profile.newPostText = "";
     this._callSubscriber(this._state);

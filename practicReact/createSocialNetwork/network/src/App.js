@@ -11,7 +11,6 @@ import Dialog from "./components/Dialogs/Message";
 
 class App extends Component {
   constructor(props) {
-    // debugger;
     super(props);
     this.state = this.props.state;
   }
