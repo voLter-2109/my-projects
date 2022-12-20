@@ -1,37 +1,45 @@
 import s from "./Dialogs.module.scss";
+import {
+  updateNewMessageBodyActionCreator,
+  sendMessageActionCreator,
+  updateDialogId,
+} from "../state/state";
+import {} from "../state/state";
 
 import { NavLink, Outlet } from "react-router-dom";
 import React from "react";
 
+let activeClass = {
+  color: "black",
+  backgroundColor: "rgb(197, 118, 118)",
+  boxShadow: "2px 2px 10px rgb(0, 0, 0, .2)",
+  textDecoration: "none",
+};
+
 const Dialogs = (props) => {
-  let netMessageElement = React.createRef();
-
-  let activeClass = {
-    color: "black",
-    backgroundColor: "rgb(197, 118, 118)",
-    boxShadow: "2px 2px 10px rgb(0, 0, 0, .2)",
-    textDecoration: "none",
+  const onUpdateDialogId = (e) => {
+    const id = e.currentTarget.getAttribute("data-id");
+    props.dispatch(updateDialogId(id));
   };
 
-  const onDialogId = (e) => {
-    const id = e.target.getAttribute("data-id");
-    props.onDialogId(id);
+  const onSendMessageClick = () => {
+    props.dispatch(sendMessageActionCreator());
   };
 
-  const onNewMessage = () => {
-    let text = netMessageElement.current.value;
-    console.log(text);
+  const onNewMessageChange = (e) => {
+    let body = e.target.value;
+    props.dispatch(updateNewMessageBodyActionCreator(body));
   };
 
   const DialogName = () => {
-    const dialog = props.data.dialogs.map((item) => {
+    const dialog = props.dialogs.dialogs.map((item) => {
       return (
         <NavLink
           style={({ isActive }) => (isActive ? activeClass : undefined)}
           data-id={item.id}
           key={item.id}
           to={`/dialogs/${item.id}`}
-          onClick={onDialogId}
+          onClick={onUpdateDialogId}
         >
           {item.name}
         </NavLink>
@@ -48,12 +56,13 @@ const Dialogs = (props) => {
       <div className={s.dialog}>
         <Outlet />
       </div>
-      <div className={s.newpost}>
+      <div className={s.newmessage}>
         <textarea
-          ref={netMessageElement}
+          value={props.dialogs.newMessageBody}
+          onChange={onNewMessageChange}
           placeholder="write new post"
         ></textarea>
-        <button onClick={onNewMessage}>Post</button>
+        <button onClick={onSendMessageClick}>Post</button>
       </div>
     </div>
   );

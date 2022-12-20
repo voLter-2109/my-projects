@@ -10,39 +10,35 @@ import ErrorPage from "./components/error/errorPage";
 import Dialog from "./components/Dialogs/Message";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = this.props.state;
-  }
 
-  onDialogId = (id) => {
-    this.setState({
-      dialogId: id,
-    });
-  };
 
-  dialogId = () => {
-    let dialog = this.state.dialogs.find(
-      (item) => item.id === this.state.dialogId
-    );
-    return dialog;
-  };
+  // onDialogId = (id) => {
+  //   this.setState({
+  //     dialogId: id,
+  //   });
+  // };
+
+  // dialogId = () => {
+  //   let dialog = this.state.dialogs.find(
+  //     (item) => item.id === this.state.dialogId
+  //   );
+  //   return dialog;
+  // };
 
   render() {
-    const message = this.dialogId();
+    // const message = this.dialogId();
     return (
       <>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout friends={this.state.friends} />}>
+            <Route path="/" element={<Layout friends={this.props.state.friends} />}>
               {/* start profile component */}
               <Route
                 index
                 element={
                   <Profile
-                    stateProfile={this.state.profile}
-                    addPost={this.props.addPost}
-                    updateNewPost={this.props.updateNewPost}
+                    stateProfile={this.props.state.profile}
+                    dispatch={this.props.dispatch}
                   />
                 }
               />
@@ -52,12 +48,15 @@ class App extends Component {
               <Route
                 path="/dialogs"
                 element={
-                  <Dialogs onDialogId={this.onDialogId} data={this.state} />
+                  <Dialogs
+                    dialogs={this.props.state.dialogs}
+                    dispatch={this.props.dispatch}
+                  />
                 }
               >
                 <Route
                   path="/dialogs/:id"
-                  element={<Dialog data={message} />}
+                  // element={<Dialog data={message} />}
                 />
               </Route>
               {/* end */}
