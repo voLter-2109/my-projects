@@ -7,31 +7,22 @@ import Layout from "./components/Layout/Layout";
 import Profile from "./components/profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import ErrorPage from "./components/error/errorPage";
-import Dialog from "./components/Dialogs/Message";
+import Dialog from "./components/Dialogs/Dialog";
 
 class App extends Component {
-
-
-  // onDialogId = (id) => {
-  //   this.setState({
-  //     dialogId: id,
-  //   });
-  // };
-
-  // dialogId = () => {
-  //   let dialog = this.state.dialogs.find(
-  //     (item) => item.id === this.state.dialogId
-  //   );
-  //   return dialog;
-  // };
-
+  constructor(props) {
+    super(props);
+  }
   render() {
     // const message = this.dialogId();
     return (
       <>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout friends={this.props.state.friends} />}>
+            <Route
+              path="/"
+              element={<Layout friends={this.props.state.friends} />}
+            >
               {/* start profile component */}
               <Route
                 index
@@ -56,7 +47,9 @@ class App extends Component {
               >
                 <Route
                   path="/dialogs/:id"
-                  // element={<Dialog data={message} />}
+                  element={
+                    <Dialog message={this.props.state.dialogs.message} />
+                  }
                 />
               </Route>
               {/* end */}

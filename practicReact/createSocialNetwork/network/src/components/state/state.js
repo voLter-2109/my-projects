@@ -8,7 +8,7 @@ const SEND_MESSAGE = "SEND-MESSAGE";
 
 const store = {
   _callSubscriber: null,
-
+  _dialogMessage: null,
   _state: {
     profile: {
       name: "Aleksey Flechin",
@@ -19,7 +19,8 @@ const store = {
     },
     dialogs: {
       newMessageBody: "123",
-      dialogId: "0",
+      dialogId: 0,
+      message: [],
       dialogs: [
         {
           name: "",
@@ -94,6 +95,12 @@ const store = {
     this._callSubscriber = observer;
   },
 
+  showDialogMessage() {
+    this._state.dialogs.message = this._state.dialogs.dialogs.find(
+      (item) => item.id === this._state.dialogs.dialogId
+    );
+  },
+
   dispatch(action) {
     // dispatch Action Profile
     if (action.type === "ADD-POST") {
@@ -106,20 +113,26 @@ const store = {
       // dispatch Action Dialogs
     } else if (action.type === "UPDATE-DIALOG-ID") {
       this._state.dialogs.dialogId = action.id;
-      console.log(this._state.dialogs.dialogId);
+      this._state.dialogs.newMessageBody = "123";
+      this.showDialogMessage();
+      this._callSubscriber(this._state);
     } else if (action.type === "UPDATE-NEW-MESSAGE-BODY") {
       this._state.dialogs.newMessageBody = action.body;
       this._callSubscriber(this._state);
     } else if (action.type === "SEND-MESSAGE") {
-      let body = this._state.dialogs.newMessageBody;
-      // correct [id] 
-      this._state.dialogs.dialogs[0].message.push({ id: "me", message: body });
-      this._state.dialogs.newMessageBody = "123";
-      //
-      // let id = this._state.dialogs.indexOf((item) => item.id === action.id);
-      // this._state.dialogs[id].message.push({ id: "me", message: body });
-      //
-      this._callSubscriber(this._state);
+      if (this._state.dialogs.dialogId === 0) {
+        return;
+      } else {
+        let body = this._state.dialogs.newMessageBody;
+        //
+        this._state.dialogs.dialogs[this._state.dialogs.dialogId].message.push({
+          id: "me",
+          message: body,
+        });
+        this._state.dialogs.newMessageBody = "123";
+        //
+        this._callSubscriber(this._state);
+      }
     }
   },
 };
