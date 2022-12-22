@@ -1,11 +1,10 @@
 import React from "react";
 import s from "./MyPosts.module.scss";
-import Post from "./Post/Post";
+import Post from "./Post";
 
 const MyPosts = (props) => {
-  debugger;
-  const postElement = props.stateProfile.posts.map((p) => {
-    <Post message={p} />;
+  const postElement = props.posts.map((p) => {
+    return <Post message={p} />;
   });
 
   const addPost = () => {

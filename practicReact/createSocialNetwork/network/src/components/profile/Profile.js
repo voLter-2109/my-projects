@@ -2,7 +2,7 @@ import s from "./Profile.module.scss";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile = (props) => {
-  debugger;
+
   const { name, urlAvatar, urlMainPhoto } = props.stateProfile;
 
   return (
