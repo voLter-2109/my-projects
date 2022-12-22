@@ -3,8 +3,7 @@ import {
   updateNewMessageBodyActionCreator,
   sendMessageActionCreator,
   updateDialogId,
-} from "../state/state";
-import {} from "../state/state";
+} from "../state/dialogsReducer";
 
 import { NavLink, Outlet } from "react-router-dom";
 import React from "react";

@@ -1,9 +1,9 @@
 import s from "./Profile.module.scss";
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile = (props) => {
-  const { name, urlAvatar, urlMainPhoto, posts, newPostText } =
-    props.stateProfile;
+  debugger;
+  const { name, urlAvatar, urlMainPhoto } = props.stateProfile;
 
   return (
     <>
@@ -19,9 +19,8 @@ const Profile = (props) => {
             <div className={s.name}>{name}</div>
           </div>
         </div>
-        <MyPosts
-          posts={posts}
-          newPostText={newPostText}
+        <MyPostsContainer
+          state={props.stateProfile}
           dispatch={props.dispatch}
         />
       </div>

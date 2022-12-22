@@ -10,18 +10,14 @@ import ErrorPage from "./components/error/errorPage";
 import Dialog from "./components/Dialogs/Dialog";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    // const message = this.dialogId();
     return (
       <>
         <BrowserRouter>
           <Routes>
             <Route
               path="/"
-              element={<Layout friends={this.props.state.friends} />}
+              element={<Layout stateSidebar={this.props.state.sidebar} />}
             >
               {/* start profile component */}
               <Route

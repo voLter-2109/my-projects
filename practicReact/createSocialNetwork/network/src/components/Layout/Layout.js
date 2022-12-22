@@ -4,12 +4,11 @@ import NavBar from "./NavBar/NavBar";
 import s from "./Layout.module.scss";
 
 const Layout = (props) => {
-  // debugger;
   return (
     <>
       <div className="app-wrapper">
         <Header />
-        <NavBar frineds={props.friends} />
+        <NavBar frineds={props.stateSidebar.friends} />
 
         <div className={s.content}>
           <Outlet />

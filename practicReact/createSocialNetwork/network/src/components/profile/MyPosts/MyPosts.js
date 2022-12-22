@@ -1,36 +1,29 @@
 import React from "react";
-import {
-  addPostActionCreator,
-  updatNewPostTextActionCreator,
-} from "../../state/state";
 import s from "./MyPosts.module.scss";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  let newPostElement = React.createRef();
+  debugger;
+  const postElement = props.stateProfile.posts.map((p) => {
+    <Post message={p} />;
+  });
 
   const addPost = () => {
-    props.dispatch(addPostActionCreator());
+    props.addPost();
   };
 
-  const onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.dispatch(updatNewPostTextActionCreator (text));
+  const onPostChange = (e) => {
+    let text = e.currentTarget.value;
+    props.updateNewPostText(text);
   };
 
   return (
     <>
       <div>New Post</div>
-      <textarea
-        ref={newPostElement}
-        value={props.newPostText}
-        onChange={onPostChange}
-      />
+      <textarea value={props.newPostText} onChange={onPostChange} />
       <button onClick={addPost}>Post</button>
       <div>My Post</div>
-      <div className={s.message}>
-        <Post messages={props.posts} />
-      </div>
+      <div className={s.message}>{postElement}</div>
     </>
   );
 };
