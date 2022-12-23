@@ -64,6 +64,7 @@ const dialogsReducer = (state = initialState, action) => {
       state.dialogId = action.id;
       state.newMessageBody = "123";
       state.message = state.dialogs.find((item) => item.id === state.dialogId);
+      
       return state;
 
     case UPDATE_NEW_MESSAGE_BODY:
