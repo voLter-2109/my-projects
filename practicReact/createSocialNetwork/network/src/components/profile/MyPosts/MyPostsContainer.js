@@ -7,7 +7,8 @@ import MyPosts from "./MyPosts";
 
 const MyPostsContainer = (props) => {
   const addPost = () => {
-    props.dispatch(addPostActionCreator());
+    let id = new Date().getTime();
+    props.dispatch(addPostActionCreator(id));
   };
 
   const onPostChange = (text) => {
@@ -18,7 +19,7 @@ const MyPostsContainer = (props) => {
     <MyPosts
       updateNewPostText={onPostChange}
       addPost={addPost}
-      posts={props.state.posts}
+      state={props.state}
     />
   );
 };

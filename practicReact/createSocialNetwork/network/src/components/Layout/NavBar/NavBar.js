@@ -12,17 +12,17 @@ const NavBar = (props) => {
   const Friends = () => {
     const friend = props.frineds.map((f) => {
       return (
-        <>
+        <div key={f.id}>
           <div className={s.friend}>
             <img src={f.url} alt="" />
             <p>{f.name}</p>
           </div>
-        </>
+        </div>
       );
     });
     return friend;
   };
-   
+
   return (
     <nav className={s.nav}>
       <NavLink

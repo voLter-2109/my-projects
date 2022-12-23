@@ -91,7 +91,7 @@ const dialogsReducer = (state = initialState, action) => {
 
 export default dialogsReducer;
 
-export const updateDialogId = (id) => {
+export const updateDialogIdActionCreator = (id) => {
   return {
     type: UPDATE_DIALOG_ID,
     id: id,

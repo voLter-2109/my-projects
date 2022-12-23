@@ -5,7 +5,7 @@ import "./App.css";
 
 import Layout from "./components/Layout/Layout";
 import Profile from "./components/profile/Profile";
-import Dialogs from "./components/Dialogs/Dialogs";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ErrorPage from "./components/error/errorPage";
 import Dialog from "./components/Dialogs/Dialog";
 
@@ -35,7 +35,7 @@ class App extends Component {
               <Route
                 path="/dialogs"
                 element={
-                  <Dialogs
+                  <DialogsContainer
                     dialogs={this.props.state.dialogs}
                     dispatch={this.props.dispatch}
                   />
