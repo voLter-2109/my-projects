@@ -5,7 +5,6 @@ import MainNav from "./pages/Header/Header";
 import Home from "./pages/home/HomePage";
 import OurCoffe from "./pages/OurCoffe/OurCoffe";
 import Pleasure from "./pages/pleasure/Pleasure";
-import OneItemCoffe from "./oneItemCodde";
 
 export default class App extends Component {
   constructor(props) {
@@ -54,6 +53,7 @@ export default class App extends Component {
           url: "./img/coffe/solimo.png",
         },
       ],
+      basket: [],
     };
   }
 
@@ -67,19 +67,27 @@ export default class App extends Component {
     return newData;
   };
 
+  onPurchase = (id) => {
+    let newBasket = [...this.state.basket, id];
+    this.setState({ basket: newBasket });
+    console.log(this.state.basket);
+  };
+
   render() {
     return (
       <Routes>
         <Route path="/" element={<MainNav />}>
-          <Route index element={<Home data={this.ShowBestCoffe()} />} />
+          <Route
+            index
+            element={
+              <Home data={this.ShowBestCoffe()} onPurchase={this.onPurchase} />
+            }
+          />
           <Route
             path="/ourcoffee"
             element={<OurCoffe data={this.state.data} />}
           />
-          <Route
-            path="/:name"
-            element={<OneItemCoffe data={this.state.data} />}
-          />
+
           <Route path="/foryourpleasure" element={<Pleasure />} />
         </Route>
       </Routes>

@@ -1,7 +1,6 @@
 import { Component, Fragment } from "react";
 import { HeaderStyle } from "../Header/headerStyle";
 import styled from "styled-components";
-
 import CreateCardItem from "../Card/card";
 
 const AboutUs = styled.div`
@@ -64,8 +63,9 @@ const CardsBlock = styled.div`
 export default class Home extends Component {
   CreateList = () => {
     const element = this.props.data.map((item) => {
-      const { id, ...itemsProps } = item;
-      return <CreateCardItem key={id} {...itemsProps} />;
+      return (
+        <CreateCardItem card={item} key={item.id} onPurchase={this.props.onPurchase}/>
+      );
     });
 
     return <MainBlock>{element}</MainBlock>;
@@ -96,10 +96,10 @@ export default class Home extends Component {
             Situation recommend objection do intention so questions. As greatly
             removed calling pleased improve an. Last ask him cold feel met spot
             shy want. Children me laughing we prospect answered followed. At it
-            went is song that held help face. N
+            went is song that held help face.
           </p>
           <p>
-            ow residence dashwoods she excellent you. Shade being under his bed
+            Now residence dashwoods she excellent you. Shade being under his bed
             her, Much read on as draw. Blessing for ignorant exercise any
             yourself unpacked. Pleasant horrible but confined day end marriage.
             Eagerness furniture set preserved far recommend. Did even but nor
@@ -107,8 +107,8 @@ export default class Home extends Component {
             ladies now.
           </p>
         </AboutUs>
-        <CardsBlock>{this.CreateList()}</CardsBlock>
 
+        <CardsBlock>{this.CreateList()}</CardsBlock>
         <footer
           style={{ height: 300, backgroundColor: "grey", marginTop: 40 }}
         />

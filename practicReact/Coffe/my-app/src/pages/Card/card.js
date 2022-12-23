@@ -1,19 +1,21 @@
-import { Link } from "react-router-dom";
-
+import BtnModalWindow from "./BtnModalWindow";
 import s from "./card.module.scss";
 
 const CreateCardItem = (props) => {
-  const { name, prise, country, best, url } = props;
+  const onClickBuy = (e) => {
+    let id = e.target.parentNode.getAttribute("data-id");
+
+    props.onPurchase(id);
+  };
+  const { id, name, prise, country, url } = props.card;
   return (
-    <div className={s.cardsCard}>
+    <div data-id={id} className={s.cardsCard}>
       <img src={url} alt="Coffe" />
       <p>{name}</p>
       <p>{country}</p>
       <p>{prise}</p>
-      <Link key={props.id} to={`/${name}`} {...props}>
-        {" "}
-        Просмотр{" "}
-      </Link>
+      <BtnModalWindow data={props.card} onPurchase={props.onPurchase} />
+      <button onClick={onClickBuy}>Buy</button>
     </div>
   );
 };
