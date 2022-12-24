@@ -1,26 +1,28 @@
 body {
   display: flex;
+  flex-direction: column;
+  height: 300vh;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-ul{ 
+ul {
   list-style: none;
 }
 
 .nav {
   align-items: center;
-  flex: 1;
+  /* flex: 1; */
   border: 1px solid red;
   position: relative;
-  height: 50px;
+  height: 90px;
   padding: 15px;
 }
-.two {
+/* .two {
   flex: 2;
-}
+} */
 .spisok {
   border: 1px solid black;
   display: none;
@@ -30,6 +32,14 @@ ul{
   padding: 10px;
   position: absolute;
   top: 49px;
+}
+
+.test {
+  border: 1px solid red;
+  width: 100px;
+  height: 100px;
+  position: sticky;
+  top: 100px;
 }
 
 /* span:hover > ul {

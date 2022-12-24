@@ -2,6 +2,7 @@ import { Component, Fragment } from "react";
 import { HeaderStyle } from "../Header/headerStyle";
 import styled from "styled-components";
 import CreateCardItem from "../Card/card";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 const AboutUs = styled.div`
   display: block;
@@ -64,7 +65,11 @@ export default class Home extends Component {
   CreateList = () => {
     const element = this.props.data.map((item) => {
       return (
-        <CreateCardItem card={item} key={item.id} onPurchase={this.props.onPurchase}/>
+        <CreateCardItem
+          card={item}
+          key={item.id}
+          onPurchase={this.props.onPurchase}
+        />
       );
     });
 
@@ -109,6 +114,7 @@ export default class Home extends Component {
         </AboutUs>
 
         <CardsBlock>{this.CreateList()}</CardsBlock>
+        <ShoppingCart />
         <footer
           style={{ height: 300, backgroundColor: "grey", marginTop: 40 }}
         />

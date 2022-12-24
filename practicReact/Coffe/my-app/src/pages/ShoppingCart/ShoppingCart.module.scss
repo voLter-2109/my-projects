@@ -1,0 +1,36 @@
+.shopping {
+  padding: 0;
+  padding: 5px;
+  border: none;
+  position: sticky;
+  bottom: 10px;
+  left: 95%;
+  border-radius: 50%;
+  background-color: transparent;
+
+  @keyframes rotate-top {
+    0% {
+      transform: rotate(0);
+      transform-origin: top;
+    }
+
+    100% {
+      transform: rotate(360deg);
+      transform-origin: top;
+    }
+  }
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:hover svg {
+    animation: rotate-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  }
+
+
+  &>svg>path {
+    fill: black;
+  }
+
+}

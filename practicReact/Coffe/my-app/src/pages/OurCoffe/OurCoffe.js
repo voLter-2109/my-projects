@@ -19,9 +19,15 @@ export default class OurCoffe extends Component {
   }
   ShowCoffe = () => {
     const element = this.props.data.map((item) => {
-      const { id, ...itemsProps } = item;
-      return <CreateCardItem key={id} {...itemsProps} />;
-    });
+      return (
+        <CreateCardItem
+          card={item}
+          key={item.id}
+          onPurchase={this.props.onPurchase}
+        />
+      );
+    })
+
     return <>{element}</>;
   };
 

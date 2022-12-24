@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import MainNav from "./pages/Header/Header";
 import Home from "./pages/home/HomePage";
@@ -8,7 +8,9 @@ import Pleasure from "./pages/pleasure/Pleasure";
 
 export default class App extends Component {
   constructor(props) {
+    debugger;
     super(props);
+
     this.state = {
       data: [
         {
@@ -75,22 +77,27 @@ export default class App extends Component {
 
   render() {
     return (
-      <Routes>
-        <Route path="/" element={<MainNav />}>
-          <Route
-            index
-            element={
-              <Home data={this.ShowBestCoffe()} onPurchase={this.onPurchase} />
-            }
-          />
-          <Route
-            path="/ourcoffee"
-            element={<OurCoffe data={this.state.data} />}
-          />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainNav />}>
+            <Route
+              index
+              element={
+                <Home
+                  data={this.ShowBestCoffe()}
+                  onPurchase={this.onPurchase}
+                />
+              }
+            />
+            <Route
+              path="/ourcoffee"
+              element={<OurCoffe data={this.state.data} />}
+            />
 
-          <Route path="/foryourpleasure" element={<Pleasure />} />
-        </Route>
-      </Routes>
+            <Route path="/foryourpleasure" element={<Pleasure />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     );
   }
 }
