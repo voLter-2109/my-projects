@@ -5,9 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function BtnModalWindow(props) {
   const [lgShow, setLgShow] = useState(false);
+
   const onClickBuy = () => {
     props.onPurchase(props.data.id);
   };
+
   return (
     <>
       <Button onClick={() => setLgShow(true)}>Large modal</Button>

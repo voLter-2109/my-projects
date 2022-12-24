@@ -5,7 +5,27 @@ import s from "./ShoppingCart.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-function ShoppingCart() {
+function ShoppingCart(props) {
+  const Test = () => {
+    let test = props.state.map((item) => {
+      return (
+        <tr>
+          <td style={{ border: "1px solid black" }}>{item.name}</td>
+          <td style={{ border: "1px solid black" }}>{item.prise}</td>
+        </tr>
+      );
+    });
+
+    return test;
+  };
+  const Prise = () => {
+    let total = 0;
+    props.state.map((item) => {
+      return (total += +item.prise);
+    });
+    return total + "$";
+  };
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -13,7 +33,7 @@ function ShoppingCart() {
 
   return (
     <>
-      <Button 
+      <Button
         className={s.shopping}
         variant="primary"
         onClick={handleShow}
@@ -21,7 +41,7 @@ function ShoppingCart() {
       >
         <FontAwesomeIcon
           icon={faCartShopping}
-          style={{ width: 30, height: 30}}
+          style={{ width: 30, height: 30 }}
         />
       </Button>
 
@@ -35,7 +55,17 @@ function ShoppingCart() {
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          I will not close if you click outside of me.
+          <table>
+            <tbody>
+              <tr>
+                <th style={{ border: "1px solid black" }}>Name</th>
+                <th style={{ border: "1px solid black" }}>Prise</th>
+              </tr>
+
+              <Test />
+            </tbody>
+          </table>
+          <Prise />
         </Offcanvas.Body>
       </Offcanvas>
     </>

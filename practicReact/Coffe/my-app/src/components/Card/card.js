@@ -2,12 +2,13 @@ import BtnModalWindow from "./BtnModalWindow";
 import s from "./card.module.scss";
 
 const CreateCardItem = (props) => {
+  const { id, name, prise, country, url } = props.card;
+
   const onClickBuy = (e) => {
     let id = e.target.parentNode.getAttribute("data-id");
-
     props.onPurchase(id);
   };
-  const { id, name, prise, country, url } = props.card;
+
   return (
     <div data-id={id} className={s.cardsCard}>
       <img src={url} alt="Coffe" />
