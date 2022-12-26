@@ -1,5 +1,5 @@
 import { HeaderStyle } from "../Header/headerStyle";
-
+import Container from "react-bootstrap/Container";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 import styled from "styled-components";
@@ -33,24 +33,25 @@ const OurCoffePage = (props) => {
       <HeaderOurCoffe>
         <h1>Our Coffee</h1>
       </HeaderOurCoffe>
+      <Container>
+        <fieldset>
+          <input
+            style={{ border: "1px solid red" }}
+            type="text"
+            value={props.state.filter}
+            onChange={onChangeText}
+          ></input>
+          <button onClick={onResetText}>reset</button>
+        </fieldset>
 
-      <fieldset>
-        <input
-          style={{ border: "1px solid red" }}
-          type="text"
-          value={props.state.filter}
-          onChange={onChangeText}
-        ></input>
-        <button onClick={onResetText}>reset</button>
-      </fieldset>
-
-      <div className="cardBlock">
-        <CoffeeCard />
-      </div>
-      <ShoppingCart
-        state={props.state.basket}
-        delBuyCoffee={props.delBuyCoffee}
-      />
+        <div className="cardBlock">
+          <CoffeeCard />
+        </div>
+        <ShoppingCart
+          state={props.state.basket}
+          delBuyCoffee={props.delBuyCoffee}
+        />
+      </Container>
       <footer style={{ height: 300, backgroundColor: "grey", marginTop: 40 }} />
     </>
   );

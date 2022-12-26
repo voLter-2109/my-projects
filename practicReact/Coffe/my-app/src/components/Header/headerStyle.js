@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const HeaderStyle = styled.header`
-  height: 70vh;
+  height: 50vh;
   background-image: url("./img/header/home.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -61,33 +61,33 @@ const HeaderStyle = styled.header`
   }
 `;
 
-const Nav = styled.nav`
-  display: flex;
-  align-items: flex-end;
-  flex-direction: row;
-  gap: 20px;
-  z-index: 2;
+// const Nav = styled.nav`
+//   display: flex;
+//   align-items: flex-end;
+//   flex-direction: row;
+//   gap: 20px;
+//   z-index: 2;
 
-  position: absolute;
-  top: 4%;
-  left: 2%;
-  ul {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
+//   position: absolute;
+//   top: 4%;
+//   left: 2%;
+//   ul {
+//     display: flex;
+//     flex-direction: row;
+//     gap: 20px;
 
-    a {
-      color: white;
-      font-size: 2em;
+//     a {
+//       color: white;
+//       font-size: 2em;
 
-      &.active {
-        color: red;
-        text-decoration: underline;
-        text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2);
-      }
-    }
-  }
-`;
+//       &.active {
+//         color: red;
+//         text-decoration: underline;
+//         text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2);
+//       }
+//     }
+//   }
+// `;
 
 const Li = styled.li`
   font-family: "Merienda";
@@ -98,5 +98,5 @@ const Li = styled.li`
   color: #ffffff;
 `;
 
-export { Nav, Li };
+export {  Li };
 export { HeaderStyle };

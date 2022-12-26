@@ -5,179 +5,97 @@ const DEL_BUY_COFFE = "DEL-BUY-COFFE";
 
 const store = {
   _callSubscriber: null,
+  _filter: "",
+  _test: [
+    {
+      name: "Solimo Coffee Beans 2 kg",
+      prise: "10.73",
+      country: "Brazil",
+      best: "true",
+      id: "1",
+      url: "./img/coffe/presto.png",
+    },
+    {
+      name: "Presto Coffee Beans 1 kg",
+      prise: "15.99",
+      country: "Kenya",
+      best: "true",
+      id: "2",
+      url: "./img/coffe/AROMISTICO.png",
+    },
+    {
+      name: "AROMISTICO Coffee 1 kg",
+      prise: "6.99",
+      country: "Columbia",
+      best: "true",
+      id: "3",
+      url: "./img/coffe/solimo.png",
+    },
+    {
+      name: "Presto Coffee Beans 1 kg",
+      prise: "15.99",
+      country: "Kenya",
+      best: "false",
+      id: "4",
+      url: "./img/coffe/AROMISTICO.png",
+    },
+    {
+      name: "AROMISTICO Coffee 1 kg",
+      prise: "6.99",
+      country: "Columbia",
 
+      best: "false",
+      id: "5",
+      url: "./img/coffe/solimo.png",
+    },
+    {
+      name: "Solimo Coffee Beans 2 kg",
+      prise: "10.73",
+      country: "Brazil",
+      best: "false",
+      id: "6",
+      url: "./img/coffe/presto.png",
+    },
+    {
+      name: "Presto Coffee Beans 1 kg",
+      prise: "15.99",
+      country: "Kenya",
+      best: "false",
+      id: "7",
+      url: "./img/coffe/AROMISTICO.png",
+    },
+    {
+      name: "AROMISTICO Coffee 1 kg",
+      prise: "6.99",
+      country: "Columbia",
+      best: "false",
+      id: "8",
+      url: "./img/coffe/solimo.png",
+    },
+    {
+      name: "Presto Coffee Beans 1 kg",
+      prise: "15.99",
+      country: "Kenya",
+      best: "false",
+      id: "9",
+      url: "./img/coffe/AROMISTICO.png",
+    },
+    {
+      name: "AROMISTICO Coffee 1 kg",
+      prise: "6.99",
+      country: "Columbia",
+      best: "false",
+      id: "10",
+      url: "./img/coffe/solimo.png",
+    },
+  ],
   _state: {
-    filter: "",
     basket: [],
-    test: [
-      {
-        name: "Solimo Coffee Beans 2 kg",
-        prise: "10.73",
-        country: "Brazil",
-        best: "true",
-        id: "1",
-        url: "./img/coffe/presto.png",
-      },
-      {
-        name: "Presto Coffee Beans 1 kg",
-        prise: "15.99",
-        country: "Kenya",
-        best: "true",
-        id: "2",
-        url: "./img/coffe/AROMISTICO.png",
-      },
-      {
-        name: "AROMISTICO Coffee 1 kg",
-        prise: "6.99",
-        country: "Columbia",
-        best: "true",
-        id: "3",
-        url: "./img/coffe/solimo.png",
-      },
-      {
-        name: "Presto Coffee Beans 1 kg",
-        prise: "15.99",
-        country: "Kenya",
-        best: "false",
-        id: "4",
-        url: "./img/coffe/AROMISTICO.png",
-      },
-      {
-        name: "AROMISTICO Coffee 1 kg",
-        prise: "6.99",
-        country: "Columbia",
-
-        best: "false",
-        id: "5",
-        url: "./img/coffe/solimo.png",
-      },
-      {
-        name: "Solimo Coffee Beans 2 kg",
-        prise: "10.73",
-        country: "Brazil",
-        best: "false",
-        id: "6",
-        url: "./img/coffe/presto.png",
-      },
-      {
-        name: "Presto Coffee Beans 1 kg",
-        prise: "15.99",
-        country: "Kenya",
-        best: "false",
-        id: "7",
-        url: "./img/coffe/AROMISTICO.png",
-      },
-      {
-        name: "AROMISTICO Coffee 1 kg",
-        prise: "6.99",
-        country: "Columbia",
-        best: "false",
-        id: "8",
-        url: "./img/coffe/solimo.png",
-      },
-      {
-        name: "Presto Coffee Beans 1 kg",
-        prise: "15.99",
-        country: "Kenya",
-        best: "false",
-        id: "9",
-        url: "./img/coffe/AROMISTICO.png",
-      },
-      {
-        name: "AROMISTICO Coffee 1 kg",
-        prise: "6.99",
-        country: "Columbia",
-        best: "false",
-        id: "10",
-        url: "./img/coffe/solimo.png",
-      },
-    ],
-    data: [
-      {
-        name: "Solimo Coffee Beans 2 kg",
-        prise: "10.73",
-        country: "Brazil",
-        best: "true",
-        id: "1",
-        url: "./img/coffe/presto.png",
-      },
-      {
-        name: "Presto Coffee Beans 1 kg",
-        prise: "15.99",
-        country: "Kenya",
-        best: "true",
-        id: "2",
-        url: "./img/coffe/AROMISTICO.png",
-      },
-      {
-        name: "AROMISTICO Coffee 1 kg",
-        prise: "6.99",
-        country: "Columbia",
-        best: "true",
-        id: "3",
-        url: "./img/coffe/solimo.png",
-      },
-      {
-        name: "Presto Coffee Beans 1 kg",
-        prise: "15.99",
-        country: "Kenya",
-        best: "false",
-        id: "4",
-        url: "./img/coffe/AROMISTICO.png",
-      },
-      {
-        name: "AROMISTICO Coffee 1 kg",
-        prise: "6.99",
-        country: "Columbia",
-
-        best: "false",
-        id: "5",
-        url: "./img/coffe/solimo.png",
-      },
-      {
-        name: "Solimo Coffee Beans 2 kg",
-        prise: "10.73",
-        country: "Brazil",
-        best: "false",
-        id: "6",
-        url: "./img/coffe/presto.png",
-      },
-      {
-        name: "Presto Coffee Beans 1 kg",
-        prise: "15.99",
-        country: "Kenya",
-        best: "false",
-        id: "7",
-        url: "./img/coffe/AROMISTICO.png",
-      },
-      {
-        name: "AROMISTICO Coffee 1 kg",
-        prise: "6.99",
-        country: "Columbia",
-        best: "false",
-        id: "8",
-        url: "./img/coffe/solimo.png",
-      },
-      {
-        name: "Presto Coffee Beans 1 kg",
-        prise: "15.99",
-        country: "Kenya",
-        best: "false",
-        id: "9",
-        url: "./img/coffe/AROMISTICO.png",
-      },
-      {
-        name: "AROMISTICO Coffee 1 kg",
-        prise: "6.99",
-        country: "Columbia",
-        best: "false",
-        id: "10",
-        url: "./img/coffe/solimo.png",
-      },
-    ],
+    data: [],
   },
 
   getstate() {
+    this.onShowCardCoffe();
     return this._state;
   },
 
@@ -186,10 +104,8 @@ const store = {
   },
 
   onShowCardCoffe() {
-    let filterItemCoffe = this._state.test.filter((item) => {
-      if (
-        item.name.toLowerCase().indexOf(this._state.filter.toLowerCase()) !== -1
-      ) {
+    let filterItemCoffe = this._test.filter((item) => {
+      if (item.name.toLowerCase().indexOf(this._filter.toLowerCase()) !== -1) {
         return item;
       }
     });
@@ -199,7 +115,7 @@ const store = {
   dispatch(action) {
     switch (action.type) {
       case RESET_COFFEE_CARD:
-        this._state.filter = "";
+        this._filter = "";
         this.onShowCardCoffe();
         return this._callSubscriber(this._state);
       case BUY_COFFEE:
@@ -208,7 +124,7 @@ const store = {
         });
         return this._state.basket.push(coffee);
       case FILTER_COFFEE:
-        this._state.filter = action.text;
+        this._filter = action.text;
         this.onShowCardCoffe();
         return this._callSubscriber(this._state);
       case DEL_BUY_COFFE:
