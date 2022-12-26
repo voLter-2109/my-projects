@@ -8,13 +8,18 @@ import CreateCardItem from "./components/Card/card";
 
 import {
   buyCoffeeActionCreator,
+  delBuyCoffeeActionCreator,
   filterCoffeActionCreator,
   resetCoffeCardActionCreator,
 } from "./store/store";
 
 const App = (props) => {
-  const resetCoffeCard = () => {
+  const delBuyCoffee = (id) => {
+    console.log(id);
+    props.dispatch(delBuyCoffeeActionCreator(id));
+  };
 
+  const resetCoffeCard = () => {
     props.dispatch(resetCoffeCardActionCreator());
   };
 
@@ -26,9 +31,25 @@ const App = (props) => {
     props.dispatch(buyCoffeeActionCreator(id));
   };
 
-  const element = props.state.data.map((item) => {
+  const coffeeCards = props.state.data.map((item) => {
     return <CreateCardItem card={item} key={item.id} onPurchase={onPurchase} />;
   });
+
+  const bestCoffeeCards = () => {
+    let bestCoffee = [];
+    props.state.data.forEach((item) => {
+      if (item.best === "true") {
+        return bestCoffee.push(item);
+      }
+    });
+    let bestCoffeeCard = bestCoffee.map((item) => {
+      return (
+        <CreateCardItem card={item} key={item.id} onPurchase={onPurchase} />
+      );
+    });
+
+    return bestCoffeeCard;
+  };
 
   return (
     <BrowserRouter>
@@ -39,14 +60,21 @@ const App = (props) => {
             element={
               <HomePage
                 state={props.state}
-                cardCoffee={element}
-                onChangeText={onChangeText}
+                bestCoffeeCards={bestCoffeeCards}
+                delBuyCoffee={delBuyCoffee}
               />
             }
           />
           <Route
             path="/ourcoffee"
-            element={<OurCoffePage state={props.state} cardCoffee={element} />}
+            element={
+              <OurCoffePage
+                state={props.state}
+                cardCoffee={coffeeCards}
+                onChangeText={onChangeText}
+                delBuyCoffee={delBuyCoffee}
+              />
+            }
           />
 
           <Route

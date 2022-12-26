@@ -6,8 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function BtnModalWindow(props) {
   const [lgShow, setLgShow] = useState(false);
 
-  const onClickBuy = () => {
-    props.onPurchase(props.data.id);
+  const onClickBuy = (e) => {
+    let id = e.target.parentNode.getAttribute("data-id");
+    props.onPurchase(id);
   };
 
   return (
@@ -25,8 +26,14 @@ function BtnModalWindow(props) {
             {props.data.name}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <button onClick={onClickBuy}>Buy</button>
+        <Modal.Body data-id={props.data.id}>
+          <button
+            onClick={(e) => {
+              onClickBuy(e);
+            }}
+          >
+            Buy
+          </button>
         </Modal.Body>
       </Modal>
     </>

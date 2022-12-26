@@ -1,29 +1,53 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import s from "./ShoppingCart.module.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import Offcanvas from "react-bootstrap/Offcanvas";
+
+import s from "./ShoppingCart.module.scss";
+
 function ShoppingCart(props) {
-  const Test = () => {
-    let test = props.state.map((item) => {
+  const test = (e) => {
+    if (e.target && e.target.nodeName === "BUTTON") {
+      props.delBuyCoffee(e.target.getAttribute("data-id"));
+    }
+  };
+
+  const CreateCard = () => {
+    let id = -1;
+    let cardRow = props.state.map((item) => {
+      id++;
       return (
-        <tr>
-          <td style={{ border: "1px solid black" }}>{item.name}</td>
-          <td style={{ border: "1px solid black" }}>{item.prise}</td>
+        <tr key={id}>
+          <td >{item.name}</td>
+          <td >{item.prise + " $"}</td>
+          <td style={{ paddingLeft: "10px" }}>
+            <button
+              data-id={id}
+              onClick={(e) => test(e)}
+              style={{
+                width: "10px",
+                height: "10px",
+                backgroundColor: "black",
+              }}
+            ></button>
+          </td>
         </tr>
       );
     });
 
-    return test;
+    return cardRow;
   };
+
   const Prise = () => {
     let total = 0;
     props.state.map((item) => {
       return (total += +item.prise);
     });
-    return total + "$";
+    return "Total:   " + total.toFixed(2) + " $";
   };
 
   const [show, setShow] = useState(false);
@@ -55,16 +79,17 @@ function ShoppingCart(props) {
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <table>
+          <Table striped bordered hover>
             <tbody>
               <tr>
-                <th style={{ border: "1px solid black" }}>Name</th>
-                <th style={{ border: "1px solid black" }}>Prise</th>
+                <th >Name</th>
+                <th >Prise</th>
+                <th></th>
               </tr>
 
-              <Test />
+              <CreateCard />
             </tbody>
-          </table>
+          </Table>
           <Prise />
         </Offcanvas.Body>
       </Offcanvas>

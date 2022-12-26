@@ -42,10 +42,6 @@ const AboutUs = styled.div`
 `;
 
 const HomePage = (props) => {
-  const onChangeText = (e) => {
-    props.onChangeText(e.target.value);
-  };
-
   return (
     <>
       <HeaderStyle>
@@ -53,18 +49,9 @@ const HomePage = (props) => {
         <div>
           <img src="./img/logoWhite.svg" alt="logo coffe" />
         </div>
-        <h2>
-          We makes every day full of energy and taste <br />
-          Want to try our beans?
-        </h2>
-        <button>More</button>
+        <h2>We makes every day full of energy and taste</h2>
       </HeaderStyle>
       <AboutUs>
-        <input
-          type="text"
-          value={props.state.filter}
-          onChange={onChangeText}
-        ></input>
         <h2>About Us</h2>
         <div>
           <img src="./img/logoBlack.svg" alt="logo coffe" />
@@ -85,8 +72,13 @@ const HomePage = (props) => {
           hope. Secure active living depend son repair day ladies now.
         </p>
       </AboutUs>
-      <div className="cardBlock">{props.cardCoffee}</div>
-      <ShoppingCart state={props.state.basket} />
+      <h2>Bestseller</h2>
+      <div className="cardBlock">
+        <props.bestCoffeeCards />
+      </div>
+      <ShoppingCart state={props.state.basket} 
+        delBuyCoffee={props.delBuyCoffee}
+      />
       <footer style={{ height: 300, backgroundColor: "grey", marginTop: 40 }} />
     </>
   );
