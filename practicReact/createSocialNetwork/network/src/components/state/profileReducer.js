@@ -1,5 +1,6 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const cloneDeep = require("lodash/cloneDeep");
 
 let initialState = {
   name: "Aleksey Flechin",
@@ -19,12 +20,11 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST:
       state.posts.push({ id: action.id, message: state.newPostText });
       state.newPostText = "";
-      return state;
+      return (state = cloneDeep(state));
 
     case UPDATE_NEW_POST_TEXT:
       state.newPostText = action.newText;
-      return state;
-
+      return (state = cloneDeep(state));
     default:
       return state;
   }

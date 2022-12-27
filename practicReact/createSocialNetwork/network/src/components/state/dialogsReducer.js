@@ -1,10 +1,11 @@
 const UPDATE_DIALOG_ID = "UPDATE-DIALOG-ID";
 const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
 const SEND_MESSAGE = "SEND-MESSAGE";
+const cloneDeep = require("lodash/cloneDeep");
 
 let initialState = {
   newMessageBody: "123",
-  dialogId: 0,
+  dialogId: 1,
   message: [],
   dialogs: [
     {
@@ -64,16 +65,16 @@ const dialogsReducer = (state = initialState, action) => {
       state.dialogId = action.id;
       state.newMessageBody = "123";
       state.message = state.dialogs.find((item) => item.id === state.dialogId);
-      
-      return state;
+
+      return (state = cloneDeep(state));
 
     case UPDATE_NEW_MESSAGE_BODY:
       state.newMessageBody = action.body;
-      return state;
+      return (state = cloneDeep(state));
 
     case SEND_MESSAGE:
       if (state.dialogId === 0) {
-        return;
+        return state;
       } else {
         let body = state.newMessageBody;
         //
@@ -83,10 +84,10 @@ const dialogsReducer = (state = initialState, action) => {
         });
         state.newMessageBody = "123";
       }
-      return state;
+      return (state = cloneDeep(state));
 
     default:
-      return state;
+      return (state = cloneDeep(state));
   }
 };
 
