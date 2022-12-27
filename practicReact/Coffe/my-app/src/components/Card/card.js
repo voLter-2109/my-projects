@@ -12,11 +12,15 @@ const CreateCardItem = (props) => {
   return (
     <div data-id={id} className={s.cardsCard}>
       <img src={url} alt="Coffe" />
-      <p>{name}</p>
-      <p>{country}</p>
-      <p>{prise}</p>
-      <BtnModalWindow data={props.card} onPurchase={props.onPurchase} />
-      <button onClick={onClickBuy}>Buy</button>
+      <div>
+        <p className={s.name}>{name}</p>
+        <p>{"Country: " + country}</p>
+        <div className={s.price}>
+          <span>{prise + "$"}</span>
+          <button onClick={onClickBuy}>Buy</button>
+        </div>
+        <BtnModalWindow data={props.card} onPurchase={props.onPurchase} />
+      </div>
     </div>
   );
 };

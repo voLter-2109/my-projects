@@ -7,6 +7,7 @@ const HeaderPleasure = styled(HeaderStyle)`
 `;
 
 const PleasurePage = () => {
+
   return (
     <>
       <HeaderPleasure>

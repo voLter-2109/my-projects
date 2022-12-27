@@ -5,8 +5,21 @@
   position: sticky;
   bottom: 10px;
   left: 95%;
-  border-radius: 50%;
-  background-color: transparent;
+  border: none !important;
+  background-color: transparent !important;
+  animation: shake-bottom 4s steps(5, end) infinite both;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:hover svg {
+    animation: rotate-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  }
+  
+  &>svg>path {
+    fill: black;
+  }
 
   @keyframes rotate-top {
     0% {
@@ -20,17 +33,40 @@
     }
   }
 
-  &:hover {
-    background-color: transparent;
+  @keyframes shake-bottom {
+
+    0%,
+    100% {
+      transform: rotate(0deg);
+      transform-origin: 50% 100%;
+    }
+
+    1% {
+      transform: rotate(2deg);
+    }
+
+    2%,
+    4%,
+    6% {
+      transform: rotate(-4deg);
+    }
+
+    3%,
+    5%,
+    7% {
+      transform: rotate(4deg);
+    }
+
+    8% {
+      transform: rotate(-2deg);
+    }
+
+    9% {
+      transform: rotate(2deg);
+    }
   }
 
-  &:hover svg {
-    animation: rotate-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-  }
 
 
-  &>svg>path {
-    fill: black;
-  }
 
 }

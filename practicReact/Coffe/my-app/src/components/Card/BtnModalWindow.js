@@ -13,7 +13,7 @@ function BtnModalWindow(props) {
 
   return (
     <>
-      <Button onClick={() => setLgShow(true)}>Large modal</Button>
+      <Button onClick={() => setLgShow(true)}>Show more</Button>
 
       <Modal
         size="lg"

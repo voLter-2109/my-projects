@@ -1,45 +1,10 @@
-import { HeaderStyle } from "../Header/headerStyle";
 import styled from "styled-components";
+
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import Container from "react-bootstrap/Container";
-const AboutUs = styled.div`
-  display: block;
-  width: 55vw;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 40px;
 
-  div {
-    margin-top: 20px;
-    position: relative;
+import { HeaderStyle, AboutUs } from "../Header/headerStyle";
 
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 50%;
-      right: 32%;
-      width: 100px;
-      border: 1px solid black;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    }
-
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 32%;
-      width: 100px;
-      border: 1px solid black;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    }
-  }
-  p {
-    margin-top: 20px;
-    font-size: 1.3em;
-  }
-`;
 
 const HomePage = (props) => {
   return (
@@ -51,7 +16,7 @@ const HomePage = (props) => {
         </div>
         <h2>We makes every day full of energy and taste</h2>
       </HeaderStyle>
-      <Container>
+      <Container style={{textAlign: "center"}}>
         <AboutUs>
           <h2>About Us</h2>
           <div>
@@ -74,7 +39,7 @@ const HomePage = (props) => {
             ladies now.
           </p>
         </AboutUs>
-        <h2>Bestseller</h2>
+        <h2 style={{marginTop: "40px"}}>Bestseller</h2>
         <div className="cardBlock">
           <props.bestCoffeeCards />
         </div>

@@ -6,7 +6,6 @@ const HeaderStyle = styled.header`
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,44 +49,46 @@ const HeaderStyle = styled.header`
     color: #ffffff;
     line-height: 1.2em;
   }
-  
-  button {
-    color: white;
-    background-color: transparent;
-    border: 1px solid #ffffff;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-radius: 3px;
-    padding: 10px 42px;
-  }
 `;
 
-// const Nav = styled.nav`
-//   display: flex;
-//   align-items: flex-end;
-//   flex-direction: row;
-//   gap: 20px;
-//   z-index: 2;
+const AboutUs = styled.div`
+  display: block;
+  width: 55vw;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 40px;
 
-//   position: absolute;
-//   top: 4%;
-//   left: 2%;
-//   ul {
-//     display: flex;
-//     flex-direction: row;
-//     gap: 20px;
+  div {
+    margin-top: 20px;
+    position: relative;
 
-//     a {
-//       color: white;
-//       font-size: 2em;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 32%;
+      width: 100px;
+      border: 1px solid black;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    }
 
-//       &.active {
-//         color: red;
-//         text-decoration: underline;
-//         text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2);
-//       }
-//     }
-//   }
-// `;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 32%;
+      width: 100px;
+      border: 1px solid black;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+  p {
+    margin-top: 20px;
+    font-size: 1.3em;
+  }
+`;
 
 const Li = styled.li`
   font-family: "Merienda";
@@ -98,5 +99,4 @@ const Li = styled.li`
   color: #ffffff;
 `;
 
-export {  Li };
-export { HeaderStyle };
+export { HeaderStyle , AboutUs, Li};

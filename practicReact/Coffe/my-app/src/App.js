@@ -77,10 +77,7 @@ const App = (props) => {
             }
           />
 
-          <Route
-            path="/foryourpleasure"
-            element={<PleasurePage state={props.state} />}
-          />
+          <Route path="/foryourpleasure" element={<PleasurePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

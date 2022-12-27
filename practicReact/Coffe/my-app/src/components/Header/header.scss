@@ -1,0 +1,49 @@
+.navbar {
+  font-size: 1.5em;
+  position: absolute !important;
+  background-color: transparent;
+  z-index: 1;
+  width: 100%;
+
+  & .navbar-collapse a {
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+
+    &:hover {
+      color: white;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      /* Высота линии */
+      background-color: white;
+      /* Цвет подчеркивания при исчезании линии*/
+      transition: width 0.5s;
+      /* Время эффекта */
+    }
+    &.active:after,
+    &:hover:after {
+      content: "";
+      width: 100%;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      height: 2px;
+      /* Высота линии */
+      background-color: white;
+      /* Цвет подчеркивания при появлении линии*/
+      transition: width 0.5s;
+      /* Время эффекта */
+    }
+  }
+
+}
