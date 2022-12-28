@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+
+import { faMagnifyingGlassPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import s from "./card.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function BtnModalWindow(props) {
@@ -13,7 +18,9 @@ function BtnModalWindow(props) {
 
   return (
     <>
-      <Button onClick={() => setLgShow(true)}>Show more</Button>
+      <Button onClick={() => setLgShow(true)} className={s.btnModalWindow}>
+        <FontAwesomeIcon icon={faMagnifyingGlassPlus} />
+      </Button>
 
       <Modal
         size="lg"

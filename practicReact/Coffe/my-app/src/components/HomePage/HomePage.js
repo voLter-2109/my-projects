@@ -4,6 +4,7 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import Container from "react-bootstrap/Container";
 
 import { HeaderStyle, AboutUs } from "../Header/headerStyle";
+import Footer from "../Footer/Footer";
 
 
 const HomePage = (props) => {
@@ -48,7 +49,7 @@ const HomePage = (props) => {
         state={props.state.basket}
         delBuyCoffee={props.delBuyCoffee}
       />
-      <footer style={{ height: 300, backgroundColor: "grey", marginTop: 40 }} />
+      <Footer/>
     </>
   );
 };

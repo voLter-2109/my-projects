@@ -1,8 +1,10 @@
 import BtnModalWindow from "./BtnModalWindow";
 import s from "./card.module.scss";
 
+
+
 const CreateCardItem = (props) => {
-  const { id, name, prise, country, url } = props.card;
+  const { id, name, prise, url } = props.card;
 
   const onClickBuy = (e) => {
     let id = e.target.parentNode.getAttribute("data-id");
@@ -11,15 +13,16 @@ const CreateCardItem = (props) => {
 
   return (
     <div data-id={id} className={s.cardsCard}>
-      <img src={url} alt="Coffe" />
-      <div>
-        <p className={s.name}>{name}</p>
-        <p>{"Country: " + country}</p>
+      <div className={s.cardImg}>
+        <BtnModalWindow data={props.card} onPurchase={props.onPurchase} />
+        <img src={url} alt="Coffe" />
+      </div>
+      <div className={s.cardText}>
+        <span className={s.name}>{name}</span>
         <div className={s.price}>
           <span>{prise + "$"}</span>
           <button onClick={onClickBuy}>Buy</button>
         </div>
-        <BtnModalWindow data={props.card} onPurchase={props.onPurchase} />
       </div>
     </div>
   );
