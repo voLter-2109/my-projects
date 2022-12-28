@@ -1,7 +1,6 @@
 import "./dialogActive.css";
 
 const DialogName = (props) => {
-  // debugger;
   const onUpdateDialogId = (e) => {
     let eT = e.target.parentNode.childNodes;
     eT.forEach((e) => {
@@ -14,7 +13,11 @@ const DialogName = (props) => {
 
   const dialog = props.dialogs.map((item) => {
     return (
-      <div data-id={item.id} key={item.id} onClick={onUpdateDialogId}>
+      <div
+        data-id={item.id}
+        key={item.id}
+        onClick={onUpdateDialogId}
+      >
         {item.name}
       </div>
     );

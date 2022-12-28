@@ -8,7 +8,6 @@ import ProfileContainer from "./components/profile/ProfileContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ErrorPage from "./components/error/errorPage";
 
-
 class App extends Component {
   render() {
     return (

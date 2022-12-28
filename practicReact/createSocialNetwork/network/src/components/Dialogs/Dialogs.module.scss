@@ -43,7 +43,7 @@
   flex-direction: column;
   text-align: center;
 
-  & a:not(:first-child) {
+  & div:not(:first-child) {
     margin-bottom: 15px;
     border: 1px solid red;
     padding: 10px 5px;
@@ -77,6 +77,7 @@
       background-color: rgb(193, 130, 130);
       position: relative;
       border-radius: 10px 10px 10px 0;
+      margin-bottom: 15px;
 
       &:after {
         position: absolute;
