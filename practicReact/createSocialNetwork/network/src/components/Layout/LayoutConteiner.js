@@ -1,14 +1,18 @@
+// part of the library
 import { Outlet } from "react-router-dom";
+import { connect } from "react-redux";
+// component
 import Header from "./Header/Header";
 import NavBar from "./NavBar/NavBar";
+// style
 import s from "./Layout.module.scss";
 
-const Layout = (props) => {
+const LayoutContainer = (props) => {
   return (
     <>
       <div className="app-wrapper">
         <Header />
-        <NavBar frineds={props.stateSidebar.friends} />
+        <NavBar frineds={props.profile.friends} />
 
         <div className={s.content}>
           <Outlet />
@@ -18,4 +22,10 @@ const Layout = (props) => {
   );
 };
 
-export default Layout;
+function mapStateToProps(store) {
+  return {
+    profile: store.sidebar,
+  };
+}
+
+export default connect(mapStateToProps, null)(LayoutContainer);

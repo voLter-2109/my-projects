@@ -3,7 +3,8 @@ import s from "./MyPosts.module.scss";
 import Post from "./Post";
 
 const MyPosts = (props) => {
-  const postElement = props.state.posts.map((p) => {
+  const {newPostText, posts} = props.state;
+  const postElement = posts.map((p) => {
     return <Post message={p.message} key={p.id} />;
   });
 
@@ -19,7 +20,7 @@ const MyPosts = (props) => {
   return (
     <>
       <div>New Post</div>
-      <textarea value={props.state.newPostText} onChange={onPostChange} />
+      <textarea value={newPostText} onChange={onPostChange} />
       <button onClick={addPost}>Post</button>
       <div>My Post</div>
       <div className={s.message}>{postElement}</div>

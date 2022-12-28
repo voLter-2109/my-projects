@@ -4,24 +4,20 @@ import {
   sendMessageActionCreator,
   updateDialogIdActionCreator,
 } from "../state/dialogsReducer";
-
+import Dialog from "./Dialog";
 import DialogName from "./DialogsName";
-
-import { Outlet } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import React from "react";
 
 const DialogsContainer = (props) => {
-  const updateDialogId = (id) => {
-    props.dispatch(updateDialogIdActionCreator(id));
-  };
-
-  const onSendMessageClick = () => {
-    props.dispatch(sendMessageActionCreator());
-  };
-
-  const onNewMessageChange = (e) => {
+  const onNewMessageBody = (e) => {
     let body = e.target.value;
-    props.dispatch(updateNewMessageBodyActionCreator(body));
+    props.onNewMessageBody(body);
+  };
+  
+  const clickSendMessage = () => {
+    props.onSendMessageClick();
   };
 
   return (
@@ -29,22 +25,38 @@ const DialogsContainer = (props) => {
       <div className={s.dialogs}>
         <DialogName
           dialogs={props.dialogs.dialogs}
-          updateDialogId={updateDialogId}
+          updateDialogId={props.updateDialogId}
         />
       </div>
       <div className={s.dialog}>
-        <Outlet />
+        <Dialog message={props.dialogs} />
       </div>
       <div className={s.newmessage}>
         <textarea
           value={props.dialogs.newMessageBody}
-          onChange={onNewMessageChange}
+          onChange={onNewMessageBody}
           placeholder="write new post"
         ></textarea>
-        <button onClick={onSendMessageClick}>Post</button>
+        <button onClick={clickSendMessage}>Post</button>
       </div>
     </div>
   );
 };
 
-export default DialogsContainer;
+function mapStateToProps(store) {
+  return {
+    dialogs: store.dialogs,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    updateDialogId: bindActionCreators(updateDialogIdActionCreator, dispatch),
+    onSendMessageClick: bindActionCreators(sendMessageActionCreator, dispatch),
+    onNewMessageBody: bindActionCreators(
+      updateNewMessageBodyActionCreator,
+      dispatch
+    ),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DialogsContainer);

@@ -2,10 +2,10 @@ import s from "./Dialogs.module.scss";
 
 const Dialog = (props) => {
   const Message = () => {
-    if (props.message.length === 0 || !props.message.id) {
-      return <p></p>;
+    if (props.message.message === undefined || props.message.message.length === 0) {
+      return <p>select dialog</p>;
     } else {
-      const mes = props.message.message.map((item) => {
+      const mes = props.message.message.message.map((item) => {
         let clName = item.id === "me" ? s.left : s.right;
         let foto =
           item.id === "me"
