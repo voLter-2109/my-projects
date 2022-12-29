@@ -62,30 +62,36 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_DIALOG_ID:
-      state.dialogId = action.id;
-      state.newMessageBody = "";
-      state.message = state.dialogs.find((item) => item.id === state.dialogId);
-      return (state = cloneDeep(state));
+      return {
+        ...state,
+        dialogId: action.id,
+        newMessageBody: "",
+        message: state.dialogs.find((item) => item.id === state.dialogId),
+      };
 
     case UPDATE_NEW_MESSAGE_BODY:
-      state.newMessageBody = action.body;
-      return (state = cloneDeep(state));
+      return {
+        ...state,
+        newMessageBody: action.body,
+      };
 
     case SEND_MESSAGE:
-
-      if (state.dialogId === null) {
+      if (state.dialogId === 0) {
         return state;
       } else {
-        state.dialogs[state.dialogId].message.push({
+        let stateClone = {
+          ...state,
+          dialogs: [...state.dialogs],
+        };
+        stateClone.dialogs[stateClone.dialogId].message.push({
           id: "me",
-          message: state.newMessageBody,
+          message: stateClone.newMessageBody,
         });
-        state.newMessageBody = "";
+        stateClone.newMessageBody = "";
+        return stateClone;
       }
-      return (state = cloneDeep(state));
-
     default:
-      return (state = cloneDeep(state));
+      return state;
   }
 };
 

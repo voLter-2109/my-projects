@@ -3,13 +3,13 @@ import s from "./MyPosts.module.scss";
 import Post from "./Post";
 
 const MyPosts = (props) => {
-  const {newPostText, posts} = props.state;
+  const { newPostText, posts } = props.state;
   const postElement = posts.map((p) => {
     return <Post message={p.message} key={p.id} />;
   });
 
   const addPost = () => {
-    props.addPost();
+    props.addPost(new Date().getTime());
   };
 
   const onPostChange = (e) => {
