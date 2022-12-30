@@ -22,9 +22,9 @@ const LayoutContainer = (props) => {
   );
 };
 
-function mapStateToProps(store) {
+function mapStateToProps(state) {
   return {
-    profile: store.sidebar,
+    profile: state.sidebar,
   };
 }
 

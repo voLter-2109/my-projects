@@ -38,6 +38,12 @@ const NavBar = (props) => {
       >
         Dialogs
       </NavLink>
+      <NavLink
+        style={({ isActive }) => (isActive ? activeClass : undefined)}
+        to="users"
+      >
+        Users
+      </NavLink>
 
       <NavLink
         style={({ isActive }) => (isActive ? activeClass : undefined)}

@@ -30,9 +30,9 @@ const ProfileContainer = (props) => {
   );
 };
 
-function mapStateToProps(store) {
+function mapStateToProps(state) {
   return {
-    profile: store.profile,
+    profile: state.profile,
   };
 }
 function mapDispatchToProps(dispatch) {

@@ -52,9 +52,9 @@ const DialogsContainer = (props) => {
   );
 };
 
-function mapStateToProps(store) {
+function mapStateToProps(state) {
   return {
-    dialogs: store.dialogs,
+    dialogs: state.dialogs,
   };
 }
 function mapDispatchToProps(dispatch) {
