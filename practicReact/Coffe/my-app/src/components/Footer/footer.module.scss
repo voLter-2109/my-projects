@@ -1,61 +1,196 @@
 .footer {
-  height: 20vh;
-  background-color: #241c10;
+  display: flex;
+  flex-direction: column;
 
-  & ul {
-    display: flex;
-    flex-direction: row;
-  }
 
-  & ul li {
-    position: relative;
-    width: 120px;
-    height: 120px;
+  .footerBellow {
+    background-color: rgb(36, 28, 16);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: inherit;
-    /* border-radius: 15px; */
-    // box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+
+    & ul {
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    & ul li {
+      position: relative;
+      width: 65px;
+      height: 63px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: inherit;
+      overflow: hidden;
+    }
+
+    & ul li:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &>ul li .fa {
+      font-size: 60px;
+      // -webkit-text-stroke: 2px white;
+      color: rgb(224, 184, 117);
+
+
+    }
+
+    &>ul li::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      // border-bottom: 4px solid black;
+      transition: 0.5s ease-in-out;
+      font-family: fontAwesome;
+      text-align: center;
+      line-height: 60px;
+      font-size: 60px;
+      color: rgb(98, 72, 32);
+    }
+
+    &>ul li:hover::before {
+      opacity: 0;
+      top: -60px;
+
+    }
+
+    &>ul li:nth-child(1):before {
+      content: "\f232";
+    }
+
+    &>ul li:nth-child(2):before {
+      content: "\f2c6 ";
+    }
+
+    &>ul li:nth-child(3):before {
+      content: "\f189 ";
+    }
+
+    & .navFooter {
+      margin-bottom: 20px;
+
+      & a:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      & a {
+        text-decoration: none;
+        color: rgb(224, 184, 117);
+      }
+
+      & a:hover {
+        color: bisque;
+      }
+    }
+
   }
 
-  &>ul li .fa {
-    font-size: 60px;
-    -webkit-text-stroke: 2px white;
-    color: transparent;
+
+
+  .waveFooter {
+    position: relative;
+    height: 100px;
+
+    .wave1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      opacity: .4;
+
+      & svg {
+        position: relative;
+        display: block;
+        width: calc(152% + 1.3px);
+        height: 100px;
+        transform: rotateY(180deg);
+      }
+
+      & path {
+        fill: rgb(36, 28, 16);
+      }
+    }
+
+    .wave2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      opacity: 0.3;
+
+      & svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 100px;
+        transform: rotateY(180deg);
+
+        & path {
+          fill: rgb(36, 28, 16);
+        }
+      }
+
+
+    }
+
+    .wave3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+      opacity: 0.7;
+
+      & svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 100px;
+
+        & path {
+          fill: rgb(36, 28, 16);
+        }
+      }
+    }
+
+    .wave4 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: scale(1, -1) rotate(0deg);
+
+
+      & svg {
+        position: relative;
+        display: block;
+        width: calc(123% + 1.3px);
+        height: 100px;
+
+        & path {
+          fill: rgb(36, 28, 16);
+        }
+      }
+    }
+
   }
 
-  &>ul li::before {
-    content: " ";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-    border-bottom: 4px solid black;
-    transition: 0.5s ease-in-out;
-    font-family: fontAwesome;
-    text-align: center;
-    line-height: 120px;
-    font-size: 60px;
-    color: black;
-  }
-
-  &>ul li:hover::before {
-    height: 100%;
-  }
-
-  &>ul li:nth-child(1):before {
-    content: "\f232";
-  }
-
-  &>ul li:nth-child(2):before {
-    content: "\f2c6 ";
-  }
-
-  &>ul li:nth-child(3):before {
-    content: "\f189 ";
-  }
 
 }

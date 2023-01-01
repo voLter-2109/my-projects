@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 import styled from "styled-components";
+import Footer from "../Footer/Footer";
 
 const HeaderOurCoffe = styled(HeaderStyle)`
   background-image: url("./img/header/ourCoffe.png");
@@ -52,7 +53,7 @@ const OurCoffePage = (props) => {
           delBuyCoffee={props.delBuyCoffee}
         />
       </Container>
-      <footer style={{ height: 300, backgroundColor: "grey", marginTop: 40 }} />
+      <Footer />
     </>
   );
 };
