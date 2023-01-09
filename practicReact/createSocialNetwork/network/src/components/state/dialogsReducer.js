@@ -1,7 +1,6 @@
 const UPDATE_DIALOG_ID = "UPDATE-DIALOG-ID";
 const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
 const SEND_MESSAGE = "SEND-MESSAGE";
-const cloneDeep = require("lodash/cloneDeep");
 
 let initialState = {
   newMessageBody: "",

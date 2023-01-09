@@ -14,16 +14,18 @@ class App extends Component {
   render() {
     return (
       <>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LayoutContainer />}>
-              <Route index element={<ProfileContainer />} />
-              <Route path="/dialogs" element={<DialogsContainer />} />
-              <Route path="/users" element={<UsersContainer />} />
-              <Route path="*" element={<ErrorPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LayoutContainer />}>
+                <Route index element={<ProfileContainer />} />
+                <Route path="/dialogs" element={<DialogsContainer />} />
+                <Route path="/users" element={<UsersContainer />} />
+                <Route path="*" element={<ErrorPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+   
       </>
     );
   }

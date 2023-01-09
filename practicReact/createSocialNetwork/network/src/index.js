@@ -1,5 +1,4 @@
 // part of the library
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 //style
@@ -11,13 +10,11 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App
-      //  state={state} dispatch={store.dispatch.bind(store)}
-      />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <App
+    //  state={state} dispatch={store.dispatch.bind(store)}
+    />
+  </Provider>
 );
 
 // store.subscribe(() => {
