@@ -1,12 +1,18 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
+const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
+const SET_TOTAL_COUNT = "SET-TOTAL-COUNT";
 
 let initialState = {
   users: [],
+  pageSize: 3,
+  totalCount: 0,
+  currentPage: 1,
 };
 
 const userReducer = (state = initialState, action) => {
+  window.state = state;
   switch (action.type) {
     case FOLLOW:
       return {
@@ -34,10 +40,19 @@ const userReducer = (state = initialState, action) => {
         ],
       };
 
+    case SET_CURRENT_PAGE:
+      return { ...state, currentPage: action.currentPage };
+
+    case SET_TOTAL_COUNT:
+      // debugger;
+      return {
+        ...state,
+        totalCount: action.totalCount,
+      };
+
     case SET_USERS:
       return {
         ...state,
-        // users: [...state.users, ...action.users],
         users: [...action.users],
       };
 
@@ -50,6 +65,18 @@ export const followAC = (id) => {
   return {
     type: FOLLOW,
     userId: id,
+  };
+};
+export const setTotalCount = (totalCount) => {
+  return {
+    type: SET_TOTAL_COUNT,
+    totalCount: totalCount,
+  };
+};
+export const setCurrentPage = (currentPage) => {
+  return {
+    type: SET_CURRENT_PAGE,
+    currentPage: currentPage,
   };
 };
 export const unFollowAC = (id) => {

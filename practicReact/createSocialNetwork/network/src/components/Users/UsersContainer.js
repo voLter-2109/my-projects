@@ -5,35 +5,69 @@ import { bindActionCreators } from "redux";
 import axios from "axios";
 
 // actionCreator
-import { followAC, setUsersAC, unFollowAC } from "../state/usersReducer";
+import {
+  followAC,
+  setCurrentPage,
+  setTotalCount,
+  setUsersAC,
+  unFollowAC,
+} from "../state/usersReducer";
+
+// style
+import s from "./UsersStyle.module.scss";
 
 class UsersContainer extends React.Component {
-  constructor(props){
-    super(props);
+  componentDidMount = () => {
+    axios.get("http://localhost:3001/total").then((response) => {
+      this.props.setTotalCount(response.data[0]);
+    });
+
     axios
-        .get("http://localhost:3001/users")
+      .get(
+        `http://localhost:3001/users?_page=${this.props.currentPage}&_limit=${this.props.pageSize}`
+      )
+      .then((response) => {
+        this.props.setUsers(response.data);
+      });
+  };
 
-        .then((response) => {
-          console.log(1);
-          this.props.setUsers(response.data);
-        });
-  }
-  // getUsers = () => {
-  //   if (this.props.users.length === 0) {
-  //     axios
-  //       .get("http://localhost:3001/users")
+  onPageChenged = (currentPage) => {
+    this.props.setCurrentPage(currentPage);
 
-  //       .then((response) => {
-  //         console.log(1);
-  //         this.props.setUsers(response.data);
-  //       });
-  //   }
-  // };
+    axios
+      .get(
+        `http://localhost:3001/users?_page=${currentPage}&_limit=${this.props.pageSize}`
+      )
+      .then((response) => {
+        this.props.setUsers(response.data);
+      });
+  };
 
   render = () => {
+    debugger;
+    let pagesCount = Math.ceil(this.props.totalCount / this.props.pageSize);
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+      pages.push(i);
+    }
+
     return (
       <div>
-        {/* <button onClick={this.getUsers}>getUsers</button> */}
+        <div>
+          {pages.map((p) => {
+            return (
+              <span
+                onClick={() => this.onPageChenged(p)}
+                key={p}
+                className={
+                  this.props.currentPage === p ? s.selectPage : undefined
+                }
+              >
+                {p}
+              </span>
+            );
+          })}
+        </div>
         {this.props.users.map((user) => {
           return (
             <div
@@ -84,6 +118,9 @@ class UsersContainer extends React.Component {
 function mapStateToProps(state) {
   return {
     users: state.users.users,
+    pageSize: state.users.pageSize,
+    totalCount: state.users.totalCount,
+    currentPage: state.users.currentPage,
   };
 }
 function mapDispatchToProps(dispatch) {
@@ -91,6 +128,8 @@ function mapDispatchToProps(dispatch) {
     follow: bindActionCreators(followAC, dispatch),
     unFollow: bindActionCreators(unFollowAC, dispatch),
     setUsers: bindActionCreators(setUsersAC, dispatch),
+    setCurrentPage: bindActionCreators(setCurrentPage, dispatch),
+    setTotalCount: bindActionCreators(setTotalCount, dispatch),
   };
 }
 
