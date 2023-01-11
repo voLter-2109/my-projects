@@ -3,12 +3,14 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
 const SET_TOTAL_COUNT = "SET-TOTAL-COUNT";
+const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
 
 let initialState = {
   users: [],
   pageSize: 3,
   totalCount: 0,
   currentPage: 1,
+  isFetching: true,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -56,12 +58,16 @@ const userReducer = (state = initialState, action) => {
         users: [...action.users],
       };
 
+    case TOGGLE_IS_FETCHING:
+      console.log(action.isFetching);
+      return { ...state, isFetching: action.isFetching };
+
     default:
       return state;
   }
 };
 
-export const followAC = (id) => {
+export const follow = (id) => {
   return {
     type: FOLLOW,
     userId: id,
@@ -73,19 +79,25 @@ export const setTotalCount = (totalCount) => {
     totalCount: totalCount,
   };
 };
+export const toggleIsFetching = (isFetching) => {
+  return {
+    type: TOGGLE_IS_FETCHING,
+    isFetching: isFetching,
+  };
+};
 export const setCurrentPage = (currentPage) => {
   return {
     type: SET_CURRENT_PAGE,
     currentPage: currentPage,
   };
 };
-export const unFollowAC = (id) => {
+export const unFollow = (id) => {
   return {
     type: UNFOLLOW,
     userId: id,
   };
 };
-export const setUsersAC = (users) => {
+export const setUsers = (users) => {
   return {
     type: SET_USERS,
     users: users,

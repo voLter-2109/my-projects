@@ -1,23 +1,27 @@
 // part of the library
-import React from "react";
+import React, { useCallback } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+// import { bindActionCreators } from "redux";
 import axios from "axios";
 
 // actionCreator
 import {
-  followAC,
+  follow,
   setCurrentPage,
   setTotalCount,
-  setUsersAC,
-  unFollowAC,
+  setUsers,
+  toggleIsFetching,
+  unFollow,
 } from "../state/usersReducer";
 
-// style
-import s from "./UsersStyle.module.scss";
+// component
+import Users from "./Users";
+import Pagination from "./Pagination";
+import Preloader from "../common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
   componentDidMount = () => {
+    this.props.toggleIsFetching(true);
     axios.get("http://localhost:3001/total").then((response) => {
       this.props.setTotalCount(response.data[0]);
     });
@@ -28,10 +32,12 @@ class UsersContainer extends React.Component {
       )
       .then((response) => {
         this.props.setUsers(response.data);
+        this.props.toggleIsFetching(false);
       });
   };
 
   onPageChenged = (currentPage) => {
+    this.props.toggleIsFetching(true);
     this.props.setCurrentPage(currentPage);
 
     axios
@@ -40,11 +46,12 @@ class UsersContainer extends React.Component {
       )
       .then((response) => {
         this.props.setUsers(response.data);
+        this.props.toggleIsFetching(false);
       });
   };
 
   render = () => {
-    debugger;
+    // debugger;
     let pagesCount = Math.ceil(this.props.totalCount / this.props.pageSize);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -52,65 +59,24 @@ class UsersContainer extends React.Component {
     }
 
     return (
-      <div>
-        <div>
-          {pages.map((p) => {
-            return (
-              <span
-                onClick={() => this.onPageChenged(p)}
-                key={p}
-                className={
-                  this.props.currentPage === p ? s.selectPage : undefined
-                }
-              >
-                {p}
-              </span>
-            );
-          })}
-        </div>
-        {this.props.users.map((user) => {
-          return (
-            <div
-              key={user.id}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                border: "1px solid black",
-              }}
-            >
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <img style={{ width: "100px" }} src={user.fotoUrl} alt="" />
-                {user.followed ? (
-                  <button onClick={() => this.props.unFollow(user.id)}>
-                    Follow
-                  </button>
-                ) : (
-                  <button onClick={() => this.props.follow(user.id)}>
-                    unFollow
-                  </button>
-                )}
-              </div>
-              <div
-                style={{
-                  width: "50%",
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div>
-                  <div>{user.fullName}</div>
-                  <div>{user.status}</div>
-                </div>
-                <div>
-                  <div>{user.location.city}</div>
-                  <div>{user.location.country}</div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <>
+        {this.props.isFetching ? (
+          <Preloader />
+        ) : (
+          <>
+            <Pagination
+              pages={pages}
+              onPageChenged={this.onPageChenged}
+              currentPage={this.props.currentPage}
+            />
+            <Users
+              users={this.props.users}
+              unFollow={this.props.unFollow}
+              follow={this.props.follow}
+            />
+          </>
+        )}
+      </>
     );
   };
 }
@@ -121,16 +87,15 @@ function mapStateToProps(state) {
     pageSize: state.users.pageSize,
     totalCount: state.users.totalCount,
     currentPage: state.users.currentPage,
-  };
-}
-function mapDispatchToProps(dispatch) {
-  return {
-    follow: bindActionCreators(followAC, dispatch),
-    unFollow: bindActionCreators(unFollowAC, dispatch),
-    setUsers: bindActionCreators(setUsersAC, dispatch),
-    setCurrentPage: bindActionCreators(setCurrentPage, dispatch),
-    setTotalCount: bindActionCreators(setTotalCount, dispatch),
+    isFetching: state.users.isFetching,
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {
+  follow,
+  unFollow,
+  setUsers,
+  setCurrentPage,
+  setTotalCount,
+  toggleIsFetching,
+})(UsersContainer);
