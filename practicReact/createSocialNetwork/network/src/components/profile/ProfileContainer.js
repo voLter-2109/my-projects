@@ -28,6 +28,18 @@ class ProfileContainer extends React.Component {
       this.props.setUserProfile(response.data);
     });
   }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("prevState");
+  //   console.log(prevState);
+  //   console.log("this.state");
+  //   console.log(prevProps);
+
+  //   console.log("new.state");
+  //   let a = this.state; //придет новый стетй
+  //   let b = this.props; //придут новые пропсы
+  //   console.log(a);
+  //   console.log(b);
+  // }
 
   render() {
     return (
