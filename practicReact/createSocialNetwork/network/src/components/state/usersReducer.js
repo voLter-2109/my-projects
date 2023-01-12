@@ -7,14 +7,13 @@ const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
 
 let initialState = {
   users: [],
-  pageSize: 3,
+  pageSize: 5,
   totalCount: 0,
   currentPage: 1,
   isFetching: true,
 };
 
 const userReducer = (state = initialState, action) => {
-  window.state = state;
   switch (action.type) {
     case FOLLOW:
       return {
@@ -59,7 +58,6 @@ const userReducer = (state = initialState, action) => {
       };
 
     case TOGGLE_IS_FETCHING:
-      console.log(action.isFetching);
       return { ...state, isFetching: action.isFetching };
 
     default:

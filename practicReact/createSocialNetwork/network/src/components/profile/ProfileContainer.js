@@ -1,10 +1,14 @@
 // part of the library
+import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import axios from "axios";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 // actionCreator
 import {
   addPostActionCreator,
   updatNewPostTextActionCreator,
+  setUserProfile,
 } from "../state/profileReducer";
 // component
 import MyPosts from "./MyPosts/MyPosts";
@@ -12,23 +16,34 @@ import HeaderProfile from "./MyHeaderProfile/HeaderProfile";
 // style
 import s from "./Profile.module.scss";
 // lodash
-const omit = require("lodash/omit");
 const pick = require("lodash/pick");
 
-const ProfileContainer = (props) => {
-  return (
-    <>
-      <div className={s.profile}>
-        <HeaderProfile state={omit(props.profile, ["posts", "newPostText"])} />
-        <MyPosts
-          state={pick(props.profile, ["posts", "newPostText"])}
-          addPost={props.addPost}
-          updateNewPostText={props.updateNewPostText}
-        />
-      </div>
-    </>
-  );
-};
+class ProfileContainer extends React.Component {
+  componentDidMount() {
+    let userId = this.props.router.params.userId;
+    if (!userId) {
+      userId = 1;
+    }
+    axios.get(`http://localhost:3001/users/${userId}`).then((response) => {
+      this.props.setUserProfile(response.data);
+    });
+  }
+
+  render() {
+    return (
+      <>
+        <div className={s.profile}>
+          <HeaderProfile {...this.props.profile} />
+          <MyPosts
+            state={pick(this.props.profile, ["posts", "newPostText"])}
+            addPost={this.props.addPost}
+            updateNewPostText={this.props.updateNewPostText}
+          />
+        </div>
+      </>
+    );
+  }
+}
 
 function mapStateToProps(state) {
   return {
@@ -42,7 +57,20 @@ function mapDispatchToProps(dispatch) {
       updatNewPostTextActionCreator,
       dispatch
     ),
+    setUserProfile: bindActionCreators(setUserProfile, dispatch),
   };
 }
+function withRouter(Component) {
+  function ComponentWithRouterProp(props) {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+    return <Component {...props} router={{ location, navigate, params }} />;
+  }
+  return ComponentWithRouterProp;
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(ProfileContainer));

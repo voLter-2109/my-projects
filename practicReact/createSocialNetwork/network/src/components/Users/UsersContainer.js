@@ -1,5 +1,5 @@
 // part of the library
-import React, { useCallback } from "react";
+import React from "react";
 import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 import axios from "axios";
@@ -22,7 +22,7 @@ import Preloader from "../common/Preloader/Preloader";
 class UsersContainer extends React.Component {
   componentDidMount = () => {
     this.props.toggleIsFetching(true);
-    axios.get("http://localhost:3001/total").then((response) => {
+    axios.get("http://localhost:3001/totalUsers").then((response) => {
       this.props.setTotalCount(response.data[0]);
     });
 

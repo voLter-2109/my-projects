@@ -7,12 +7,18 @@ import NavBar from "./NavBar/NavBar";
 // style
 import s from "./Layout.module.scss";
 
+import { setUserProfile } from "../state/profileReducer";
+
 const LayoutContainer = (props) => {
+  // debugger;
   return (
     <>
       <div className="app-wrapper">
         <Header />
-        <NavBar frineds={props.profile.friends} />
+        <NavBar
+          frineds={props.profile.friends}
+          setUserProfile={props.setUserProfile}
+        />
 
         <div className={s.content}>
           <Outlet />
@@ -25,7 +31,8 @@ const LayoutContainer = (props) => {
 function mapStateToProps(state) {
   return {
     profile: state.sidebar,
+    myProfileLink: state.profile.myProfile,
   };
 }
 
-export default connect(mapStateToProps, null)(LayoutContainer);
+export default connect(mapStateToProps, { setUserProfile })(LayoutContainer);

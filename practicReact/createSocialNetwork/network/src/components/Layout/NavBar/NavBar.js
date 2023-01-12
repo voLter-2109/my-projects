@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import axios from "axios";
 import s from "./NavBar.module.scss";
 
 let activeClass = {
@@ -9,6 +9,7 @@ let activeClass = {
   textDecoration: "none",
 };
 const NavBar = (props) => {
+  // debugger;
   const Friends = () => {
     const friend = props.frineds.map((f) => {
       return (
@@ -27,7 +28,12 @@ const NavBar = (props) => {
     <nav className={s.nav}>
       <NavLink
         style={({ isActive }) => (isActive ? activeClass : undefined)}
-        to=""
+        to="profile"
+        onClick={() => {
+          axios.get(`http://localhost:3001/users/1`).then((response) => {
+            props.setUserProfile(response.data);
+          });
+        }}
       >
         Profile
       </NavLink>

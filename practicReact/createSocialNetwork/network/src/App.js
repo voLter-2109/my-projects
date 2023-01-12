@@ -1,5 +1,5 @@
 // part of the library
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import { Component } from "react";
 // style
 import "./App.css";
@@ -14,18 +14,20 @@ class App extends Component {
   render() {
     return (
       <>
-
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<LayoutContainer />}>
-                <Route index element={<ProfileContainer />} />
-                <Route path="/dialogs" element={<DialogsContainer />} />
-                <Route path="/users" element={<UsersContainer />} />
-                <Route path="*" element={<ErrorPage />} />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LayoutContainer />}>
+              {/* костыль для пренаправления на Профиль, что бы вместо index написать path="/profile"  в роутере Profile*/}
+              <Route index element={<Navigate to="/profile" replace />} />
+              <Route path="/profile" element={<ProfileContainer />}>
+                <Route path=":userId" element={<ProfileContainer />} />
               </Route>
-            </Routes>
-          </BrowserRouter>
-   
+              <Route path="/dialogs" element={<DialogsContainer />} />
+              <Route path="/users" element={<UsersContainer />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </>
     );
   }

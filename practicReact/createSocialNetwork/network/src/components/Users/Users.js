@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Users = (props) => {
   let user = props.users.map((user) => {
     return (
@@ -10,7 +12,9 @@ const Users = (props) => {
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <img style={{ width: "100px" }} src={user.fotoUrl} alt="" />
+          <NavLink to={"/profile/" + user.id}>
+            <img style={{ width: "100px" }} src={user.fotoUrl.small} alt="" />
+          </NavLink>
           {user.followed ? (
             <button onClick={() => props.unFollow(user.id)}>Follow</button>
           ) : (
@@ -26,12 +30,12 @@ const Users = (props) => {
           }}
         >
           <div>
-            <div>{user.fullName}</div>
-            <div>{user.status}</div>
+            <div>{user.name}</div>
+            <div>{user.username}</div>
           </div>
           <div>
-            <div>{user.location.city}</div>
-            <div>{user.location.country}</div>
+            <div>{user.address.street}</div>
+            <div>{user.address.city}</div>
           </div>
         </div>
       </div>
