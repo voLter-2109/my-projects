@@ -14,7 +14,7 @@ const LayoutContainer = (props) => {
   return (
     <>
       <div className="app-wrapper">
-        <Header />
+        <Header isAuth={props.isAuth} />
         <NavBar
           frineds={props.profile.friends}
           setUserProfile={props.setUserProfile}
@@ -32,6 +32,7 @@ function mapStateToProps(state) {
   return {
     profile: state.sidebar,
     myProfileLink: state.profile.myProfile,
+    isAuth: state.auth,
   };
 }
 

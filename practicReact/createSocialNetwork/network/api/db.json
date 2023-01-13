@@ -846,5 +846,13 @@
         "bs": "target end-to-end models"
       }
     }
-  ]
+  ],
+  "autData": 
+  { 
+    "id": 1,
+    "email": "youen@mail.ru",
+    "username": "Volter",
+    "resultCode": 1
+  }
+  
 }

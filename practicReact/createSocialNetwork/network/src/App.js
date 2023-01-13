@@ -9,6 +9,7 @@ import ProfileContainer from "./components/profile/ProfileContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ErrorPage from "./components/error/errorPage";
 import UsersContainer from "./components/Users/UsersContainer";
+import AuthContainer from "./components/Layout/AuthContainer";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route path="/" element={<LayoutContainer />}>
               {/* костыль для пренаправления на Профиль, что бы вместо index написать path="/profile"  в роутере Profile*/}
               <Route index element={<Navigate to="/profile" replace />} />
+              <Route path="/login" element={<AuthContainer />} />
               <Route path="/profile" element={<ProfileContainer />}>
                 <Route path=":userId" element={<ProfileContainer />} />
               </Route>
